@@ -11,41 +11,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150825162722) do
+ActiveRecord::Schema.define(version: 20150825164928) do
 
   create_table "addresses", force: :cascade do |t|
-    t.string   "line1",      null: false
+    t.string   "line1",              null: false
     t.string   "line2"
-    t.string   "postcode",   null: false
-    t.string   "city",       null: false
+    t.string   "postcode",           null: false
+    t.string   "city",               null: false
     t.string   "state"
-    t.string   "country",    null: false
-    t.integer  "owner_id",   null: false
+    t.string   "country",            null: false
+    t.integer  "addressesable_id"
+    t.string   "addressesable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "addresses", ["owner_id"], name: "index_addresses_on_owner_id"
+  add_index "addresses", ["addressesable_id", "addressesable_type"], name: "index_addresses_on_addressesable_id_and_addressesable_type"
+
+  create_table "clients", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "emails", force: :cascade do |t|
     t.string   "email"
     t.string   "typ"
-    t.integer  "owner_id"
+    t.integer  "emailable_id"
+    t.string   "emailable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "emails", ["owner_id"], name: "index_emails_on_owner_id"
+  add_index "emails", ["emailable_id", "emailable_type"], name: "index_emails_on_emailable_id_and_emailable_type"
 
   create_table "phones", force: :cascade do |t|
-    t.string   "idd",        null: false
-    t.string   "number",     null: false
-    t.string   "typ",        null: false
-    t.integer  "owner_id",   null: false
+    t.string   "idd",            null: false
+    t.string   "number",         null: false
+    t.string   "typ",            null: false
+    t.integer  "phoneable_id"
+    t.string   "phoneable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "phones", ["owner_id"], name: "index_phones_on_owner_id"
+  add_index "phones", ["phoneable_id", "phoneable_type"], name: "index_phones_on_phoneable_id_and_phoneable_type"
 
 end

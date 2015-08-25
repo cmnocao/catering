@@ -4,12 +4,12 @@ class CreateEmails < ActiveRecord::Migration
 
     	t.string	:email
     	t.string	:typ
-    	t.integer	:owner_id
+      t.belongs_to :emailable, polymorphic: true
 
-    	t.timestamps
+      t.timestamps
     end
-
-    add_index :emails, :owner_id
+    
+    add_index :emails, [:emailable_id, :emailable_type]
   
   end
 
