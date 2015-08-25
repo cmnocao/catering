@@ -1,0 +1,19 @@
+<%= form_for @phone do |f| %>
+  <p>
+    <%= f.label :idd %><br />
+    <%= f.text_field :idd %>
+  </p>
+    <p>
+    <%= f.label :number %><br />
+    <%= f.text_field :number %>
+  </p>
+    <p>
+    <%= f.label :typ %><br />
+    <%= f.text_field :typ %>
+  </p>
+    <p>
+    <%= f.label :owner_id %><br />
+    <%= f.text_field :owner_id %>
+  </p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>
