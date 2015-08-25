@@ -1,0 +1,15 @@
+<%= form_for @email do |f| %>
+  <p>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.label :typ %><br />
+    <%= f.text_field :typ %>
+  </p>
+    <p>
+    <%= f.label :owner_id %><br />
+    <%= f.text_field :owner_id %>
+  </p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>

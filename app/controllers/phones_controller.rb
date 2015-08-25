@@ -12,7 +12,7 @@ class PhonesController < ApplicationController
 		@phone = Phone.new(phone_params)
 
 		if @phone.save
-			redirect_to root_path, notice: "Phone created!"
+			redirect_to phones_path, notice: "Phone created!"
 		else
 			render action: 'new'
 		end
