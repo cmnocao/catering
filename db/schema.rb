@@ -53,9 +53,13 @@ ActiveRecord::Schema.define(version: 20150826112209) do
 
   create_table "organisers", force: :cascade do |t|
     t.string   "name"
+    t.integer  "organiserable_id"
+    t.string   "organiserable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "organisers", ["organiserable_id", "organiserable_type"], name: "index_organisers_on_organiserable_id_and_organiserable_type"
 
   create_table "phones", force: :cascade do |t|
     t.string   "idd",            null: false

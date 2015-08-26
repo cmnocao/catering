@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :phones
     resources :emails
     resources :addresses
+    resources :organisers
   end
 
   resources :organisers do
@@ -16,11 +17,11 @@ Rails.application.routes.draw do
     resources :phones
     resources :emails
     resources :addresses
+    resources :organisers
   end
 
   resources :events
 
-  
   root 'home#index'
 
   # Example of regular route:
