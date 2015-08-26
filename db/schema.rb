@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150826082015) do
+ActiveRecord::Schema.define(version: 20150826112209) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "line1",            null: false
@@ -45,11 +45,21 @@ ActiveRecord::Schema.define(version: 20150826082015) do
 
   add_index "emails", ["emailable_id", "emailable_type"], name: "index_emails_on_emailable_id_and_emailable_type"
 
-  create_table "organisers", force: :cascade do |t|
+  create_table "events", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "organisers", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "organiserable_id"
+    t.string   "organiserable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "organisers", ["organiserable_id", "organiserable_type"], name: "index_organisers_on_organiserable_id_and_organiserable_type"
 
   create_table "phones", force: :cascade do |t|
     t.string   "idd",            null: false
@@ -62,5 +72,11 @@ ActiveRecord::Schema.define(version: 20150826082015) do
   end
 
   add_index "phones", ["phoneable_id", "phoneable_type"], name: "index_phones_on_phoneable_id_and_phoneable_type"
+
+  create_table "venues", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

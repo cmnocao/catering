@@ -1,3 +1,5 @@
 <% @organisers.each do |p| %>
 	<%= p.name %><br>
 <% end %>
+
+<p><%= link_to "New Organiser", [:new, @organiserable, :organiser] %></p>

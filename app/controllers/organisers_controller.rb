@@ -1,27 +1,35 @@
 class OrganisersController < ApplicationController
 
+	before_filter :load_organiserable
+
 	def index
-		@organisers = Organiser.all
+		@organisers = @organiserable.organisers
 	end
 
 	def new
-		@organiser = Organiser.new
+		@organiser = @organiserable.organisers.new
 	end
 
 	def create
-		@organiser = Organiser.new(organiser_params)
+		@organiser = @organiserable.organisers.new(organiser_params)
 
 		if @organiser.save
-			redirect_to organisers_path, notice: "Organiser created!"
+			redirect_to [@organiserable, :organisers], notice: "Organiser created!"
 		else
-			render action: 'new'
+			render 'new'
 		end
 	end
 
 	private
 
-  def organiser_params
-    params.require(:organiser).permit(:name)
-  end
+		def load_organiserable
+			resource, id = request.path.split('/')[1,2]
+			@organiserable = resource.singularize.classify.constantize.find(id)
+			puts @organiserable
+		end
+
+	  def organiser_params
+	    params.require(:organiser).permit(:name)
+	  end
 
 end

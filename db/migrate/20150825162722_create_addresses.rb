@@ -15,8 +15,4 @@ class CreateAddresses < ActiveRecord::Migration
     
     add_index :addresses, [:addressable_id, :addressable_type]
   end
-
-  def down
-    drop_table :addresses
-  end
 end

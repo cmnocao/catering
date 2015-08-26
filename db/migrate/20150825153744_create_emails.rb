@@ -12,8 +12,4 @@ class CreateEmails < ActiveRecord::Migration
     add_index :emails, [:emailable_id, :emailable_type]
   
   end
-
-  def down
-  	drop_table :emails
-  end
 end
