@@ -1,3 +1,5 @@
 <% @addresses.each do |p| %>
 	<%= p.line1 + p.postcode %><br>
 <% end %>
+
+<p><%= link_to "New Address", [:new, @addressable, :address] %></p>

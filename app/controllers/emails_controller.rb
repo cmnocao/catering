@@ -1,27 +1,34 @@
 class EmailsController < ApplicationController
 
+	before_filter :load_emailable
+
 	def index
-		@emails = Email.all
+		@emails = @emailable.emails
 	end
 
 	def new
-		@email = Email.new
+		@email = @emailable.emails.new
 	end
 
 	def create
-		@email = Email.new(email_params)
+		@email = @emailable.emails.new(email_params)
 
 		if @email.save
-			redirect_to emails_path, notice: "Email created!"
+			redirect_to [@emailable, :emails], notice: "Email created!"
 		else
-			render action: 'new'
+			render 'new'
 		end
 	end
 
 	private
 
-  def email_params
-    params.require(:email).permit(:email, :typ, :owner_id)
-  end
+		def load_emailable
+			resource, id = request.path.split('/')[1,2]
+			@emailable = resource.singularize.classify.constantize.find(id)
+		end
+
+	  def email_params
+	    params.require(:email).permit(:email, :typ)
+	  end
 
 end

@@ -1,3 +1,5 @@
 <% @phones.each do |p| %>
 	<%= p.idd + p.number %><br>
 <% end %>
+
+<p><%= link_to "New Phone", [:new, @phoneable, :phone] %></p>

@@ -1,9 +1,19 @@
 Rails.application.routes.draw do
 
+  resources :clients do
+    resources :phones
+    resources :emails
+    resources :addresses
+  end
+
+  resources :organisers do
+    resources :phones
+    resources :emails
+    resources :addresses
+  end
+
+  
   root 'home#index'
-  resources :phones
-  resources :emails
-  resources :addresses
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

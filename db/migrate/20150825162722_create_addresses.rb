@@ -8,12 +8,12 @@ class CreateAddresses < ActiveRecord::Migration
       t.string 	:city, null: false
       t.string 	:state
       t.string 	:country, null: false
-      t.belongs_to :addressesable, polymorphic: true
+      t.belongs_to :addressable, polymorphic: true
 
       t.timestamps
     end
     
-    add_index :addresses, [:addressesable_id, :addressesable_type]
+    add_index :addresses, [:addressable_id, :addressable_type]
   end
 
   def down

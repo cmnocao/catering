@@ -1,3 +1,5 @@
 <% @emails.each do |p| %>
 	<%= p.email + p.typ %><br>
 <% end %>
+
+<p><%= link_to "New Email", [:new, @emailable, :email] %></p>
