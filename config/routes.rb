@@ -18,6 +18,8 @@ Rails.application.routes.draw do
     resources :addresses
   end
 
+  resources :events
+
   
   root 'home#index'
 
