@@ -12,6 +12,12 @@ Rails.application.routes.draw do
     resources :addresses
   end
 
+  resources :venues do
+    resources :phones
+    resources :emails
+    resources :addresses
+  end
+
   
   root 'home#index'
 

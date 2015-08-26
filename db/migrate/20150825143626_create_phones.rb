@@ -13,8 +13,4 @@ class CreatePhones < ActiveRecord::Migration
     add_index :phones, [:phoneable_id, :phoneable_type]
   
   end
-
-  def down
-  	drop_table :phones
-  end
 end
