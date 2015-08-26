@@ -3,6 +3,7 @@ class CreateVenues < ActiveRecord::Migration
     create_table :venues do |t|
 
     	t.string	:name
+    	t.integer	:event_id
 
     	t.timestamps
     end

@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20150826112209) do
 
   create_table "events", force: :cascade do |t|
     t.string   "name"
+    t.integer  "client_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -75,6 +76,7 @@ ActiveRecord::Schema.define(version: 20150826112209) do
 
   create_table "venues", force: :cascade do |t|
     t.string   "name"
+    t.integer  "event_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

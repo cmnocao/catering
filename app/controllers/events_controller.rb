@@ -5,16 +5,17 @@ class EventsController < ApplicationController
 	end
 
 	def new
+		@client = Client.find( params[:client_id] )
 		@event = Event.new
 	end
 
 	def create
-		@event = Event.new(event_params)
-
+		@client = Client.find( params[:client_id] )
+		@event = @client.events.new(event_params)
 		if @event.save
 			redirect_to events_path, notice: "Event created!"
 		else
-			render action: 'new'
+			render 'new'
 		end
 	end
 
@@ -23,5 +24,5 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(:name)
   end
-
 end
+

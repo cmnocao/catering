@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :clients do
+    resources :events
     resources :phones
     resources :emails
     resources :addresses
@@ -18,6 +19,7 @@ Rails.application.routes.draw do
     resources :emails
     resources :addresses
     resources :organisers
+    resources :events
   end
 
   resources :events
