@@ -5,4 +5,5 @@ class Venue < ActiveRecord::Base
 	has_many	:organisers, as: :organiserable
 
 	has_many	:events
+	has_many	:rooms
 end

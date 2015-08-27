@@ -1,3 +1,8 @@
-<%= @venue.name %><br>
-
-<%= link_to "Events", venue_events_path(@venue) %>
+<b><%= @venue.name %></b><br>
+<%= @venue.history %><br>
+<%= @venue.opening_time %><br>
+<%= @venue.closing_time %><br>
+<%= @venue.website %><br>
+<br>
+<%= link_to "Events", venue_events_path(@venue) %><br>
+<%= link_to "New Room", new_venue_room_path(@venue) %>

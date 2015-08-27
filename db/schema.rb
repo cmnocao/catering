@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150826210334) do
+ActiveRecord::Schema.define(version: 20150827094751) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "line1",            null: false
@@ -46,8 +46,9 @@ ActiveRecord::Schema.define(version: 20150826210334) do
   add_index "emails", ["emailable_id", "emailable_type"], name: "index_emails_on_emailable_id_and_emailable_type"
 
   create_table "events", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.integer  "client_id",  null: false
+    t.string   "name",        null: false
+    t.text     "description"
+    t.integer  "client_id",   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -83,13 +84,23 @@ ActiveRecord::Schema.define(version: 20150826210334) do
 
   add_index "phones", ["phoneable_id", "phoneable_type"], name: "index_phones_on_phoneable_id_and_phoneable_type"
 
-  create_table "venues", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.integer  "event_id",   null: false
+  create_table "rooms", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "venue_id",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "venues", ["event_id"], name: "index_venues_on_event_id"
+  create_table "venues", force: :cascade do |t|
+    t.string   "name",         null: false
+    t.string   "opening_time"
+    t.string   "closing_time"
+    t.text     "history"
+    t.string   "website"
+    t.integer  "event_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

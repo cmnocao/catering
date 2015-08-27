@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     resources :addresses
     resources :organisers
     resources :events
+    resources :rooms
   end
 
   resources :events

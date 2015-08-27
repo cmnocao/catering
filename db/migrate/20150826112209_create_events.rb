@@ -3,11 +3,8 @@ class CreateEvents < ActiveRecord::Migration
     create_table :events do |t|
 
     	t.string	:name, 			null: false
+    	t.text		:description
     	t.integer	:client_id, null: false
-    	t.string	:opening_time
-    	t.string	:closing_time
-    	t.text		:history
-    	t.string	:cost
 
     	t.timestamps
     end
