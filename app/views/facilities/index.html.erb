@@ -1,0 +1,6 @@
+<% @facilities.each do |p| %>
+	<%= p.name %><br>
+	<%= p.description %><br>
+<% end %>
+
+<p><%= link_to "New Facility", new_facility_path %></p>

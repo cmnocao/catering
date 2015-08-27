@@ -2,8 +2,9 @@ class CreateEmails < ActiveRecord::Migration
   def change
     create_table :emails do |t|
 
-    	t.string	:email
-    	t.string	:typ
+    	t.string	:email, 	null: false
+    	t.string	:typ, 		null: false
+      
       t.belongs_to :emailable, polymorphic: true
 
       t.timestamps

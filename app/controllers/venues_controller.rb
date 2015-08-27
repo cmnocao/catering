@@ -18,7 +18,7 @@ class VenuesController < ApplicationController
 		if @venue.save
 			redirect_to venues_path, notice: "Venue created!"
 		else
-			render action: 'new'
+			render 'new'
 		end
 	end
 

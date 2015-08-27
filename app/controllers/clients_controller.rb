@@ -18,7 +18,7 @@ class ClientsController < ApplicationController
 		if @client.save
 			redirect_to clients_path, notice: "Client created!"
 		else
-			render action: 'new'
+			render 'new'
 		end
 	end
 

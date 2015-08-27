@@ -2,7 +2,8 @@ class CreateOrganisers < ActiveRecord::Migration
   def change
     create_table :organisers do |t|
     	
-    	t.string	:name
+    	t.string	:name, null: false
+			
 			t.belongs_to :organiserable, polymorphic: true
 
       t.timestamps
