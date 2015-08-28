@@ -1,6 +1,7 @@
 class RoomsController < ApplicationController
 
 	def index
+		@venue = Venue.find( params[:venue_id] )
 		@rooms = Room.all
 	end
 
@@ -27,7 +28,7 @@ class RoomsController < ApplicationController
 	private
 
 	  def room_params
-	    params.require(:room).permit(:name, :description)
+	    params.require(:room).permit(:name, :description, :layouts)
 	  end
 
 end

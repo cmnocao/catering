@@ -87,7 +87,8 @@ ActiveRecord::Schema.define(version: 20150827094751) do
   create_table "rooms", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.integer  "venue_id",    null: false
+    t.boolean  "layouts",     default: false
+    t.integer  "venue_id",                    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

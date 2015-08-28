@@ -1,4 +1,156 @@
-<% @rooms.each do |p| %>
-	<b><%= p.name %></b><br>
-	<%= p.description %><br><br>
-<% end %>
+<h3 class="page-header">
+  <%= @venue.name %><small> | Rooms  </small><span class="badge"><%= @venue.rooms.count %></span>
+  <div class="pull-right">
+    <%= link_to new_venue_room_path do %>
+      <i class="fa fa-plus-circle"></i>
+    <% end %>
+  </div>
+</h3>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Layouts</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @rooms.each do |r| %>
+      <tr>
+        <td><b><%= r.name %></b></td>
+        <td><%= r.description %></td>
+        <td>
+        	<% unless r.layouts == false %>
+        		<%= link_to "Layout", "#", :data => { :toggle => 'modal', :target => "#layouts_modal#{r.id}" }%>
+        	<% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "Back", :back, :class => "btn btn-default" %>
+
+<!-- START Room 1 -->
+<div class="modal fade" tabindex="-1" role="dialog" id="layouts_modal1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content text-center">
+    	<div class="modal-header">
+        <h4 class="modal-title"><%= "Great Hall" %></h4>
+      </div>
+    	<table class="table table-hover">
+				<tbody>
+					<tr>
+						<td>Up to 14 round tables of 10 guests per table.</td>
+						<td>140</td>
+						<td><a href="#" data-toggle="modal" data-target="#layout_image_modal11">Image</button></td>
+					</tr>
+					<tr>
+						<td>Top table and sprigs.</td>
+						<td>170</td>
+						<td><a href="#" data-toggle="modal" data-target="#layout_image_modal12">Image</button></td>
+					</tr>
+						<tr>
+						<td>Theatre style rows of 12 chairs with an aisle on either side and centrally.</td>
+						<td>144</td>
+						<td><a href="#" data-toggle="modal" data-target="#layout_image_modal13">Image</button></td>
+					</tr>
+				</tbody>
+			</table>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="layout_image_modal11">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content text-center">
+    	<div class="modal-header">
+        <h4 class="modal-title">Table's layout</h4>
+      </div>
+      <%= image_tag("skinners/room_layout/skinners_great_hall_seat1.gif")%>
+    </div>
+  </div>
+</div>
+<div class="modal fade" tabindex="-1" role="dialog" id="layout_image_modal12">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content text-center">
+    	<div class="modal-header">
+        <h4 class="modal-title">Table's layout</h4>
+      </div>
+      <%= image_tag("skinners/room_layout/skinners_great_hall_seat2.gif")%>
+    </div>
+  </div>
+</div>
+<div class="modal fade" tabindex="-1" role="dialog" id="layout_image_modal13">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content text-center">
+    	<div class="modal-header">
+        <h4 class="modal-title">Table's layout</h4>
+      </div>
+      <%= image_tag("skinners/room_layout/skinners_great_hall_seat3.gif")%>
+    </div>
+  </div>
+</div>
+<!-- END Room 1 -->
+
+<!-- START Room 2 -->
+<div class="modal fade" tabindex="-1" role="dialog" id="layouts_modal3">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content text-center">
+    	<div class="modal-header">
+        <h4 class="modal-title"> Old Court Room </h4>
+      </div>
+    	<table class="table table-hover">
+				<tbody>
+					<tr>
+						<td>5 round tables of up to 10 guests per table.</td>
+						<td>50</td>
+						<td><a href="#" data-toggle="modal" data-target="#layout_image_modal31">Image</button></td>
+					</tr>
+					<tr>
+						<td>Up to 50 guests on one top table and sprigs.</td>
+						<td>150</td>
+						<td><a href="#" data-toggle="modal" data-target="#layout_image_modal32">Image</button></td>
+					</tr>
+						<tr>
+						<td>Up to 32 guests on one long East India polished table.</td>
+						<td>32</td>
+						<td><a href="#" data-toggle="modal" data-target="#layout_image_modal33">Image</button></td>
+					</tr>
+				</tbody>
+			</table>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="layout_image_modal31">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content text-center">
+    	<div class="modal-header">
+        <h4 class="modal-title">Table's layout</h4>
+      </div>
+      <%= image_tag("skinners/room_layout/skinners_oldcourt_seat1.gif")%>
+    </div>
+  </div>
+</div>
+<div class="modal fade" tabindex="-1" role="dialog" id="layout_image_modal32">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content text-center">
+    	<div class="modal-header">
+        <h4 class="modal-title">Table's layout</h4>
+      </div>
+      <%= image_tag("skinners/room_layout/skinners_oldcourt_seat2.gif")%>
+    </div>
+  </div>
+</div>
+<div class="modal fade" tabindex="-1" role="dialog" id="layout_image_modal33">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content text-center">
+    	<div class="modal-header">
+        <h4 class="modal-title">Table's layout</h4>
+      </div>
+      <%= image_tag("skinners/room_layout/skinners_oldcourt_seat3.gif")%>
+    </div>
+  </div>
+</div>
+<!-- END Room 2 -->
