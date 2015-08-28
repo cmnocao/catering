@@ -1,5 +1,22 @@
-<% @organisers.each do |p| %>
-	<%= p.name %><br>
-<% end %>
-
-<p><%= link_to "New Organiser", [:new, @organiserable, :organiser] %></p>
+<h3 class="page-header">
+  <%= @client.name %> <small> | Organisers </small><span class="badge"><%= @organisers.count %></span>
+  <div class="pull-right">
+    <%= link_to new_client_organiser_path(@client) do %>
+      <i class="fa fa-plus-circle"></i>
+    <% end %>
+  </div>
+</h3>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @organisers.each do |o| %>
+      <tr>
+        <td><b><%= link_to o.name, client_organiser_path(o, @client) %></b></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

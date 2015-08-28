@@ -1,3 +1,9 @@
-<% @events.each do |p| %>
-	<%= p.name %><br>
+<% if params[:client_id] %>
+	<% @events_by_client.each do |p| %>
+		<%= p.name %><br>
+	<% end %>
+<% else %>
+	<% @events.each do |p| %>
+		<%= p.name %><br>
+	<% end %>
 <% end %>

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get '/organisers', to:'organisers#all'
+  
   resources :clients do
     resources :events
     resources :phones
@@ -25,6 +27,7 @@ Rails.application.routes.draw do
 
   resources :events
   resources :facilities
+    
 
   root 'home#index'
 

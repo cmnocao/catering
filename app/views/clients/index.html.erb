@@ -1,3 +1,23 @@
-<% @clients.each do |p| %>
-	<%= p.name %><br>
-<% end %>
+<h3 class="page-header">
+  Clients <small> | </small><span class="badge"><%= @clients.count %></span>
+  <div class="pull-right">
+    <%= link_to new_client_path do %>
+      <i class="fa fa-plus-circle"></i>
+    <% end %>
+  </div>
+</h3>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <% @clients.each do |c| %>
+      <tr>
+        <td><b><%= link_to c.name, client_path(c) %></b></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -4,7 +4,7 @@ class CreateRooms < ActiveRecord::Migration
 
     	t.string	:name
     	t.text		:description
-    	t.boolean	:layouts, default: false
+    	t.boolean	:layouts, 		default: false
     	t.integer	:venue_id, 		null: false
 
     	t.timestamps
