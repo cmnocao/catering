@@ -10,7 +10,10 @@
   <tbody>
     <% @events.each do |e| %>
       <tr>
-        <td><b><%= e.name %></b></td>
+        <td><%= link_to e.full_name, client_event_path(e, e) %></td>
+      </tr>
+      <tr>
+        <td>Another Event</td>
       </tr>
     <% end %>
   </tbody>

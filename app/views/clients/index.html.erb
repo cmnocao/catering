@@ -16,7 +16,7 @@
   <tbody>
     <% @clients.each do |c| %>
       <tr>
-        <td><b><%= link_to c.name, client_path(c) %></b></td>
+        <td><b><%= link_to c.full_name, client_path(c) %></b></td>
       </tr>
     <% end %>
   </tbody>

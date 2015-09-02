@@ -1,6 +1,66 @@
-<%= @client.full_name %><br>
-<br>
-<%= link_to "New Event", new_client_event_path(@client) %> <br>
+<h3 class="page-header">
+  <%= @client.full_name.titleize %> <span class="dot-small">&#8226;</span> <small><%= @client.class %></small>
+  <div class="pull-right">
+    <%= link_to new_client_event_path(@client) do %>
+      <i class="icon-small fa fa-glass fa-lg"></i>
+    <% end %>
+    <span class="dot-small">&#8226;</span>
+    <%= link_to edit_client_path(@client) do %>
+      <i class="icon-small fa fa-pencil fa-lg"></i>
+    <% end %>
+    <span class="dot-small">&#8226;</span>
+    <%= link_to new_client_organiser_path(@client) do %>
+      <i class="icon-small fa fa-user-plus fa-lg"></i>
+    <% end %>
+  </div>
+</h3>
+
+<div class="row">
+  <div class="col-md-2">
+    <a href="#" class="thumbnail">
+      <%= gravatar_tag @client.emails.last, size: 170 %>
+    </a>
+  </div>
+  <div class="col-md-3">
+    <table class="table table-condensed">
+      <tr>
+        <td>
+          <i class="fa fa-envelope"></i>
+            No E-Mail
+        </td>  
+      </tr>
+      <tr>
+        <td>
+          <i class="fa fa-phone"></i>
+            No Phone
+        </td>  
+      </tr>
+    </table>
+  </div>
+  <div class="col-md-5 pull-right">
+    <table class="table table-condensed">
+      <thead>
+        <th class="text-center">Name</th>
+        <th class="text-center">Date</th>
+      </thead>
+      <tbody class="text-center">
+        <% @client.events.each do |e| %>
+          <tr>
+            <td>
+              <%= link_to e.full_name, [@client, e] %>
+            </td>
+            <td>
+              <%= e.created_at.strftime("%d/%m/%y") %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+
 <%= link_to "Events", client_events_path(@client) %><br><br>
-<%= link_to "New Organiser", new_client_organiser_path(@client) %> <br>
 <%= link_to "Organisers", client_organisers_path(@client) %> <br>

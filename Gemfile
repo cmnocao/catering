@@ -12,6 +12,7 @@ gem 'jbuilder', '2.3.1'
 gem 'sdoc', '0.4.1', group: :doc
 gem 'bootstrap-sass', '3.3.5'
 gem 'font-awesome-sass', '4.4.0'
+gem 'gravatarify', '3.0.0'
 
 group :development, :test do
   gem 'byebug', '6.0.2'

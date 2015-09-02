@@ -5,7 +5,7 @@ class CreateEvents < ActiveRecord::Migration
     	t.string	:full_name,   null: false
     	t.text		:description
     	t.integer	:client_id,   null: false
-        t.integer   :venue_id,    null: false
+        t.integer   :venue_id
     	t.boolean	:active, 	  default: true
 
 

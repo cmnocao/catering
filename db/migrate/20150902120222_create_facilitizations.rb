@@ -1,4 +1,4 @@
-class CreateFacilitization < ActiveRecord::Migration
+class CreateFacilitizations < ActiveRecord::Migration
   def change
     create_table :facilitizations do |t|
 

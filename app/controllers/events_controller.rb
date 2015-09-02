@@ -12,7 +12,7 @@ class EventsController < ApplicationController
 
 	def show
 		@client = Client.find( params[:client_id] )
-		@event = Event.find(params[:id])
+		@event = Event.find( params[:id] )
 	end
 
 	def create
@@ -32,7 +32,7 @@ class EventsController < ApplicationController
 	private
 
   def event_params
-    params.require(:event).permit(:name)
+    params.require(:event).permit(:full_name, :description)
   end
 end
 
