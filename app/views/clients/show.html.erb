@@ -1,6 +1,6 @@
-<%= @client.name %><br>
+<%= @client.full_name %><br>
 <br>
-<%= link_to "New Event", new_client_event_path(client_id: params[:id]) %> <br>
-<%= link_to "Events", client_events_path(client_id: params[:id]) %><br><br>
-<%= link_to "New Organiser", new_client_organiser_path(client_id: params[:id]) %> <br>
-<%= link_to "Organisers", client_organisers_path(client_id: params[:id]) %> <br>
+<%= link_to "New Event", new_client_event_path(@client) %> <br>
+<%= link_to "Events", client_events_path(@client) %><br><br>
+<%= link_to "New Organiser", new_client_organiser_path(@client) %> <br>
+<%= link_to "Organisers", client_organisers_path(@client) %> <br>

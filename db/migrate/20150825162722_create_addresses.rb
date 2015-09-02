@@ -8,6 +8,7 @@ class CreateAddresses < ActiveRecord::Migration
       t.string 	:city,      null: false
       t.string 	:state
       t.string 	:country,   null: false
+      t.boolean :active,  default: true
       
       t.belongs_to :addressable, polymorphic: true
 

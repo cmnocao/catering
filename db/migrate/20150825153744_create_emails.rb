@@ -4,6 +4,7 @@ class CreateEmails < ActiveRecord::Migration
 
     	t.string	:email, 	null: false
     	t.string	:typ, 		null: false
+    	t.boolean	:active, 	default: true
       
       t.belongs_to :emailable, polymorphic: true
 

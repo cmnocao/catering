@@ -5,6 +5,7 @@ class CreatePhones < ActiveRecord::Migration
 			t.string	:idd,     null: false
 			t.string 	:number,  null: false
 			t.string 	:typ,     null: false
+			t.boolean	:active, 	default: true
 			
 			t.belongs_to :phoneable, polymorphic: true
 

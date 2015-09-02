@@ -5,7 +5,7 @@ class OrganisersController < ApplicationController
 	def index
 		resource, id = request.path.split('/')[1,2]
 		resource = resource.singularize.classify.constantize
-		@client = resource.find(params[:client_id])
+		@resource = resource.find(id)
 		@organisers = Organiser.where("organiserable_type = ? AND organiserable_id = ?", resource, id)
 	end
 
@@ -14,8 +14,7 @@ class OrganisersController < ApplicationController
 	end
 
 	def show
-		@client = Client.find(params[:client_id])
-		@client_organiser = @organiserable.organisers(@client)
+		@organiser = Organiser.find( params[:id] )
 	end
 
 
@@ -43,7 +42,7 @@ class OrganisersController < ApplicationController
 		end
 
 	  def organiser_params
-	    params.require(:organiser).permit(:name)
+	    params.require(:organiser).permit(:full_name)
 	  end
 
 end

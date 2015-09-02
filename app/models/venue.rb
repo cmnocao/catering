@@ -6,4 +6,6 @@ class Venue < ActiveRecord::Base
 
 	has_many	:events
 	has_many	:rooms
+	has_many :facilitizations
+	has_many :facilities, :through => :facilitizations
 end

@@ -1,7 +1,7 @@
 <h3 class="page-header">
-  <%= @client.name %> <small> | Organisers </small><span class="badge"><%= @organisers.count %></span>
+  <%= @organiserable.name %> <small> | Organisers </small><span class="badge"><%= @organisers.count %></span>
   <div class="pull-right">
-    <%= link_to new_client_organiser_path(@client) do %>
+    <%= link_to [:new, @organiserable, :organiser] do %>
       <i class="fa fa-plus-circle"></i>
     <% end %>
   </div>
@@ -15,7 +15,7 @@
   <tbody>
     <% @organisers.each do |o| %>
       <tr>
-        <td><b><%= link_to o.name, client_organiser_path(o, @client) %></b></td>
+        <td><b><%= link_to o.full_name, [@organiserable, o] %></b></td>
       </tr>
     <% end %>
   </tbody>

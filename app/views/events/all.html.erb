@@ -1,5 +1,5 @@
 <h3 class="page-header">
-  Organisers <small> | </small><span class="badge"><%= @organisers.count %></span>
+  Events <small> | </small><span class="badge"><%= @events.count %></span>
 </h3>
 <table class="table table-hover">
   <thead>
@@ -8,9 +8,9 @@
     </tr>
   </thead>
   <tbody>
-    <% @organisers.each do |o| %>
+    <% @events.each do |e| %>
       <tr>
-        <td><b><%= o.full_name %></b></td>
+        <td><b><%= e.name %></b></td>
       </tr>
     <% end %>
   </tbody>

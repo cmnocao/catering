@@ -1,8 +1,10 @@
 <b><%= @venue.name %></b><br>
-<%= @venue.history %><br>
-<%= @venue.opening_time %><br>
-<%= @venue.closing_time %><br>
+<%= @venue.history %><br><br>
+<%= @venue.opening_time %><br><br>
+<%= @venue.closing_time %><br><br>
 <%= @venue.website %><br>
 <br>
-<%= link_to "Events", venue_events_path(@venue) %><br>
-<%= link_to "New Room", new_venue_room_path(@venue) %>
+<%= link_to "Events", venue_events_path(@venue) %><br><br>
+<%= link_to "New Room", new_venue_room_path(@venue) %><br><br>
+<%= link_to "New Organiser", new_venue_organiser_path(@venue) %> <br>
+<%= link_to "Organisers", venue_organisers_path(@venue) %> <br>
