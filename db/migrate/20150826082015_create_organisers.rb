@@ -2,7 +2,7 @@ class CreateOrganisers < ActiveRecord::Migration
   def change
     create_table :organisers do |t|
     	
-    	t.string	:full_name, null: false
+    	t.string	:name, null: false
       t.boolean :active,  default: true
 			
 			t.belongs_to :organiserable, polymorphic: true

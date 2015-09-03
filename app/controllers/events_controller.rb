@@ -1,8 +1,15 @@
 class EventsController < ApplicationController
 
 	def index
-		@events = Event.all
-		@events_by_client = Event.where("client_id = ?", params[:client_id])
+
+		@resource = request.path.split('/')[1]
+		if @resource == "clients"
+			@events_count = Event.where( "client_id = ?", params[:client_id] )
+			@events = Event.where( "client_id = ?", params[:client_id] )
+		elsif @resource == "venues"
+			@events_count = Event.where( "venue_id = ?", params[:venue_id] )
+			@events = Event.where( "venue_id = ?", params[:venue_id] )
+		end
 	end
 
 	def new
@@ -30,9 +37,9 @@ class EventsController < ApplicationController
 	end
 
 	private
-
+	
   def event_params
-    params.require(:event).permit(:full_name, :description)
+    params.require(:event).permit(:name, :description)
   end
 end
 

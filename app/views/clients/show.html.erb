@@ -1,5 +1,5 @@
 <h3 class="page-header">
-  <%= @client.full_name.titleize %> <span class="dot-small">&#8226;</span> <small><%= @client.class %></small>
+  <%= @client.name.titleize %> <span class="dot-small">&#8226;</span> <small><%= @client.class %></small>
   <div class="pull-right">
     <%= link_to new_client_event_path(@client) do %>
       <i class="icon-small fa fa-glass fa-lg"></i>
@@ -47,10 +47,10 @@
         <% @client.events.each do |e| %>
           <tr>
             <td>
-              <%= link_to e.full_name, [@client, e] %>
+              <%= link_to e.name, [@client, e] %> @ <%= link_to e.venue.name, venue_path(e.venue) if true %> on <%= e.created_at.strftime("%d/%m/%y") %>
             </td>
             <td>
-              <%= e.created_at.strftime("%d/%m/%y") %>
+              
             </td>
           </tr>
         <% end %>

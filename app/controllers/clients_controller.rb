@@ -6,6 +6,9 @@ class ClientsController < ApplicationController
 
 	def new
 		@client = Client.new
+		@client.phones.build
+		@client.emails.build
+		@client.addresses.build
 	end
 
 	def show
@@ -25,7 +28,9 @@ class ClientsController < ApplicationController
 	private
 
   def client_params
-    params.require(:client).permit(:full_name)
+    params.require(:client).permit(:name, 
+    															 phones_attributes:  [ :idd, :number, :typ ],
+    															 emails_attributes:  [ :email, :typ ],
+																	 addresses_attributes: [	:line1, :line2, :postcode, :city, :state, :country ])
   end
-
 end

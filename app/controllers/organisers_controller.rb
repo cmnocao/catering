@@ -42,7 +42,7 @@ class OrganisersController < ApplicationController
 		end
 
 	  def organiser_params
-	    params.require(:organiser).permit(:full_name)
+	    params.require(:organiser).permit(:name)
 	  end
 
 end

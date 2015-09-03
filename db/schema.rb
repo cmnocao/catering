@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20150902120222) do
   add_index "addresses", ["addressable_id", "addressable_type"], name: "index_addresses_on_addressable_id_and_addressable_type"
 
   create_table "clients", force: :cascade do |t|
-    t.string   "full_name",                 null: false
+    t.string   "name",                      null: false
     t.boolean  "active",     default: true
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20150902120222) do
   add_index "emails", ["emailable_id", "emailable_type"], name: "index_emails_on_emailable_id_and_emailable_type"
 
   create_table "events", force: :cascade do |t|
-    t.string   "full_name",                  null: false
+    t.string   "name",                       null: false
     t.text     "description"
     t.integer  "client_id",                  null: false
     t.integer  "venue_id"
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 20150902120222) do
   add_index "events", ["client_id"], name: "index_events_on_client_id"
 
   create_table "facilities", force: :cascade do |t|
-    t.string   "full_name",                  null: false
+    t.string   "name",                       null: false
     t.text     "description"
     t.boolean  "active",      default: true
     t.datetime "created_at"
@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 20150902120222) do
   add_index "facilitizations", ["venue_id"], name: "index_facilitizations_on_venue_id"
 
   create_table "organisers", force: :cascade do |t|
-    t.string   "full_name",                         null: false
+    t.string   "name",                              null: false
     t.boolean  "active",             default: true
     t.integer  "organiserable_id"
     t.string   "organiserable_type"
@@ -103,7 +103,7 @@ ActiveRecord::Schema.define(version: 20150902120222) do
   add_index "phones", ["phoneable_id", "phoneable_type"], name: "index_phones_on_phoneable_id_and_phoneable_type"
 
   create_table "rooms", force: :cascade do |t|
-    t.string   "full_name",                   null: false
+    t.string   "name",                        null: false
     t.text     "description"
     t.boolean  "layouts",     default: false
     t.integer  "venue_id",                    null: false
@@ -113,7 +113,7 @@ ActiveRecord::Schema.define(version: 20150902120222) do
   end
 
   create_table "venues", force: :cascade do |t|
-    t.string   "full_name",                   null: false
+    t.string   "name",                        null: false
     t.string   "opening_time"
     t.string   "closing_time"
     t.text     "history"
