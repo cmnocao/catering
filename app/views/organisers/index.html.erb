@@ -15,7 +15,7 @@
   <tbody>
     <% @organisers.each do |o| %>
       <tr>
-        <td><b><%= link_to o.full_name, [@organiserable, o] %></b></td>
+        <td><b><%= link_to o.name, [@organiserable, o] %></b></td>
       </tr>
     <% end %>
   </tbody>

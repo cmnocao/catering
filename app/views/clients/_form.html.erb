@@ -4,61 +4,17 @@
     <%= client_form.text_field :name %>
   </p>
 
-Phone!!!
-	<%= client_form.fields_for :phones do |phone_form| %>
-		<p>
-	    <%= phone_form.label :idd %><br />
-	    <%= phone_form.text_field :idd %>
-  	</p>
-  	<p>
-	    <%= phone_form.label :number %><br />
-	    <%= phone_form.text_field :number %>
-  	</p>
-  	<p>
-	    <%= phone_form.label :typ %><br />
-	    <%= phone_form.text_field :typ %>
-  	</p>
-  <% end %>
+		<%= client_form.fields_for :phones do |phone_form| %>
+			<%= render 'phone', phone_form: phone_form %>
+	  <% end %>
 
-Address!!!
-  <%= client_form.fields_for :addresses do |address_form| %>
-		<p>
-	    <%= address_form.label :line1 %><br />
-	    <%= address_form.text_field :line1 %>
-  	</p>
-  	<p>
-	    <%= address_form.label :line2 %><br />
-	    <%= address_form.text_field :line2 %>
-  	</p>
-  	<p>
-	    <%= address_form.label :postcode %><br />
-	    <%= address_form.text_field :postcode %>
-  	</p>
-  	<p>
-	    <%= address_form.label :city %><br />
-	    <%= address_form.text_field :city %>
-  	</p>
-  	<p>
-	    <%= address_form.label :state %><br />
-	    <%= address_form.text_field :state %>
-  	</p>
-  	<p>
-	    <%= address_form.label :country %><br />
-	    <%= address_form.text_field :country %>
-  	</p>
-  <% end %>
+	  <%= client_form.fields_for :addresses do |address_form| %>
+			<%= render 'address', address_form: address_form %>
+	  <% end %>
 
-Email!!!
-  <%= client_form.fields_for :emails do |email_form| %>
-		<p>
-	    <%= email_form.label :email %><br />
-	    <%= email_form.text_field :email %>
-  	</p>
-  	<p>
-	    <%= email_form.label :typ %><br />
-	    <%= email_form.text_field :typ %>
-  	</p>
-  <% end %>
+	  <%= client_form.fields_for :emails do |email_form| %>
+			<%= render 'email', email_form: email_form %>
+	  <% end %>
   
   <p><%= client_form.submit "Submit" %></p>
 

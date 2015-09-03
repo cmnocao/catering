@@ -11,6 +11,9 @@ class OrganisersController < ApplicationController
 
 	def new
 		@organiser = @organiserable.organisers.new
+		@organiser.phones.build
+		@organiser.emails.build
+		@organiser.addresses.build
 	end
 
 	def show
@@ -42,7 +45,10 @@ class OrganisersController < ApplicationController
 		end
 
 	  def organiser_params
-	    params.require(:organiser).permit(:name)
+	    params.require(:organiser).permit(:name, 
+    															 phones_attributes:  [ :idd, :number, :typ ],
+    															 emails_attributes:  [ :email, :typ ],
+																	 addresses_attributes: [	:line1, :line2, :postcode, :city, :state, :country ])
 	  end
 
 end
