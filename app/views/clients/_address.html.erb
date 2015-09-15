@@ -1,24 +1,6 @@
-<p>
-  <%= address_form.label :line1 %><br />
-  <%= address_form.text_field :line1 %>
-</p>
-<p>
-  <%= address_form.label :line2 %><br />
-  <%= address_form.text_field :line2 %>
-</p>
-<p>
-  <%= address_form.label :postcode %><br />
-  <%= address_form.text_field :postcode %>
-</p>
-<p>
-  <%= address_form.label :city %><br />
-  <%= address_form.text_field :city %>
-</p>
-<p>
-  <%= address_form.label :state %><br />
-  <%= address_form.text_field :state %>
-</p>
-<p>
-  <%= address_form.label :country %><br />
-  <%= address_form.text_field :country %>
-</p>
+<%= address_form.input :line1 %>
+<%= address_form.input :line2 %>
+<%= address_form.input :postcode %>
+<%= address_form.input :city %>
+<%= address_form.input :state %>
+<%= address_form.input :country_id, :collection => Country.all, :label_method => :name, :value_method => :id, :label => "Country", selected: "United Kingdom"%>

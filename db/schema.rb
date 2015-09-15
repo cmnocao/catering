@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150902120222) do
+ActiveRecord::Schema.define(version: 20150914165041) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "line1",                           null: false
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20150902120222) do
     t.string   "postcode",                        null: false
     t.string   "city",                            null: false
     t.string   "state"
-    t.string   "country",                         null: false
+    t.string   "country_id",                      null: false
     t.boolean  "active",           default: true
     t.integer  "addressable_id"
     t.string   "addressable_type"
@@ -27,11 +27,25 @@ ActiveRecord::Schema.define(version: 20150902120222) do
     t.datetime "updated_at"
   end
 
-  add_index "addresses", ["addressable_id", "addressable_type"], name: "index_addresses_on_addressable_id_and_addressable_type"
+  add_index "addresses", ["addressable_id"], name: "index_addresses_on_addressable_id"
+  add_index "addresses", ["addressable_type"], name: "index_addresses_on_addressable_type"
+  add_index "addresses", ["country_id"], name: "index_addresses_on_country_id"
 
   create_table "clients", force: :cascade do |t|
     t.string   "name",                      null: false
     t.boolean  "active",     default: true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "countries", force: :cascade do |t|
+    t.string   "name",         null: false
+    t.string   "iso2",         null: false
+    t.string   "iso3",         null: false
+    t.string   "capital_name"
+    t.boolean  "enabled",      null: false
+    t.string   "nationality"
+    t.string   "idd"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -51,9 +65,11 @@ ActiveRecord::Schema.define(version: 20150902120222) do
   create_table "events", force: :cascade do |t|
     t.string   "name",                       null: false
     t.text     "description"
+    t.string   "typ",                        null: false
     t.integer  "client_id",                  null: false
     t.integer  "venue_id"
     t.boolean  "active",      default: true
+    t.date     "date",                       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -11,7 +11,7 @@
 		<% @events.each do |e| %>
 			<tr>
 				<td>	
-					<%= e.name %>
+					<%= link_to e.name, client_event_path(params[:client_id], e) %>
 				</td>
 			</tr>
 		<% end %>

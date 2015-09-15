@@ -13,6 +13,8 @@ gem 'sdoc', '0.4.1', group: :doc
 gem 'bootstrap-sass', '3.3.5'
 gem 'font-awesome-sass', '4.4.0'
 gem 'gravatarify', '3.0.0'
+gem 'simple_form', '3.1.1'
+gem 'country_select'
 
 group :development, :test do
   gem 'byebug', '6.0.2'

@@ -1,5 +1,32 @@
-<% @addresses.each do |p| %>
-	<%= p.line1 + p.postcode %><br>
-<% end %>
-
-<p><%= link_to "New Address", [:new, @addressable, :address] %></p>
+<h3 class="page-header">
+  Addresses <small> | </small><span class="badge"><%= @addressable.addresses.count %></span>
+  <div class="pull-right">
+    <%= link_to new_client_address_path do %>
+      <i class="fa fa-plus-circle"></i>
+    <% end %>
+  </div>
+</h3>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Line 1</th>
+      <th>Line 2</th>
+      <th>Postcode</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Country</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @addressable.addresses.each do |a| %>
+      <tr>
+        <td><b><%= link_to a.line1, [@addressable, a] %></b></td>
+        <td><%= a.line2 %></td>
+				<td><%= a.postcode %></td>
+				<td><%= a.city %></td>
+				<td><%= a.state %></td>
+				<td><%= a.country.name %></td>
+			</tr>
+    <% end %>
+  </tbody>
+</table>

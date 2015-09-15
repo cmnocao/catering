@@ -1,6 +1,6 @@
 venues = Venue.create!([
 		{name: "Skinners Hall", opening_time: "07:00", closing_time: "23:30", history: "Established in 1600 as a joint-stock association of English merchants trading to the ‘Indies’. During a period of rivalry the East India Company rented Skinners’ Hall from 1698 to 1709.  A ‘new’ East India Company, the United Company, was formed in 1709, and as a parting gift the Skinners’ Company was presented with the mahogany East India table which is still in use today in the Old Court Room.", website: "http://www.skinnershall.com" },
-		{name: "Saddlers Hall", opening_time: "07:00", closing_time: "23:30", history: "With a series of elegant interconnecting rooms filled with warmth and natural light, Saddlers’ Hall is a perfect place for various celebrations. Amongst the remarkable features of the Great Hall is a charming musicians’ gallery, an exquisite silver display case and captivating portraits of Past Masters of the Company. The Hall is accessed by a private courtyard with magnificent stone statuary and a water fountain.", website: "http://www.saddlershall.com" }])
+		{name: "Saddlers Hall", opening_time: "07:00", closing_time: "22:30", history: "With a series of elegant interconnecting rooms filled with warmth and natural light, Saddlers’ Hall is a perfect place for various celebrations. Amongst the remarkable features of the Great Hall is a charming musicians’ gallery, an exquisite silver display case and captivating portraits of Past Masters of the Company. The Hall is accessed by a private courtyard with magnificent stone statuary and a water fountain.", website: "http://www.saddlershall.com" }])
 
 facilities = Facility.create!([
 		{ name: 'WiFi'},
@@ -18,7 +18,8 @@ clients = Client.create!([
 		{name: "Fabio Gubert"}])
 
 events = Event.create!([
-		{name: "name: Wedding", description: "desc: Mrs and Mr Smith's wedding", client_id: 1, venue_id: 1}])
+		{name: "Mrs and Mr Smith's Wedding", typ: "Wedding", description: "very sophisticated wedding", client_id: 1, venue_id: 1, date: "23/08/15"},
+		{name: "JP Morgan Reception", typ: "Reception", description: "Just a normal reception", client_id: 1, venue_id: 1, date: "24/08/15"}])
 
 rooms = Room.create!([
 		{name: "Great Hall", description: "Dating back to 1670 with its paintings, tapestries and Coat of Arms, the main hall can accommodate up to 170 guests for a presentation or dinner.", layouts: true, venue_id: 1},

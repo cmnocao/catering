@@ -1,12 +1,3 @@
-<p>
-  <%= phone_form.label :idd %><br />
-  <%= phone_form.text_field :idd %>
-</p>
-<p>
-  <%= phone_form.label :number %><br />
-  <%= phone_form.text_field :number %>
-</p>
-<p>
-  <%= phone_form.label :typ %><br />
-  <%= phone_form.text_field :typ %>
-</p>
+<%= phone_form.input :idd, :collection => Country.all, :label_method => :country_idd, :value_method => :idd, :label => "IDD", selected: "United Kingdom +44" %>
+<%= phone_form.input :number %>
+<%= phone_form.input :typ, label: "Type", collection: [ "Mobile", "Landline"], selected: "Mobile"%>

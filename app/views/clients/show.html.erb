@@ -1,5 +1,5 @@
 <h3 class="page-header">
-  <%= @client.name.titleize %> <span class="dot-small">&#8226;</span> <small><%= @client.class %></small>
+  <%= @client.name %> <span class="dot-small">&#8226;</span> <small><%= @client.class %></small>
   <div class="pull-right">
     <%= link_to new_client_event_path(@client) do %>
       <i class="icon-small fa fa-glass fa-lg"></i>
@@ -26,13 +26,31 @@
       <tr>
         <td>
           <i class="fa fa-envelope"></i>
-            No E-Mail
+            <% if @client.emails.count > 0 %>
+              <%= @client.emails.last.email %>
+            <% else %>
+              <%= link_to "Add Email", new_client_email_path(@client) %>
+            <% end %>
         </td>  
       </tr>
       <tr>
         <td>
           <i class="fa fa-phone"></i>
-            No Phone
+            <% if @client.phones.count > 0 %>
+              <%= @client.phones.last.full_number %>
+            <% else %>
+              <%= link_to "Add Phone", new_client_phone_path(@client) %>
+            <% end %>
+        </td>  
+      </tr>
+      <tr>
+        <td>
+          <i class="fa fa-map-marker"></i>            
+            <% if @client.phones.count > 0 %>
+              <%= @client.addresses.last.display_address %>
+            <% else %>
+              <%= link_to "Add Address", new_client_address_path(@client) %>
+            <% end %>
         </td>  
       </tr>
     </table>
@@ -47,7 +65,9 @@
         <% @client.events.each do |e| %>
           <tr>
             <td>
-              <%= link_to e.name, [@client, e] %> @ <%= link_to e.venue.name, venue_path(e.venue) if true %> on <%= e.created_at.strftime("%d/%m/%y") %>
+              <% if e.venue_id != nil  %>
+                <%= link_to e.name, [@client, e] %> @ <%= link_to e.venue.name, venue_path(e.venue)%> on <%= e.date.strftime("%d/%m/%y") %>
+              <% end %>
             </td>
             <td>
               

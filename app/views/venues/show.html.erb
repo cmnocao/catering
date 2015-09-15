@@ -1,10 +1,98 @@
-<b><%= @venue.name %></b><br>
-<%= @venue.history %><br><br>
-<%= @venue.opening_time %><br><br>
-<%= @venue.closing_time %><br><br>
-<%= @venue.website %><br>
-<br>
-<%= link_to "Events", venue_events_path(@venue) %><br><br>
-<%= link_to "New Room", new_venue_room_path(@venue) %><br><br>
-<%= link_to "New Organiser", new_venue_organiser_path(@venue) %> <br>
+<h3 class="page-header">
+  <%= @venue.name.titleize %> <span class="dot-small">&#8226;</span> <small><%= @venue.class %></small>
+  <div class="pull-right">
+    <%= link_to venue_events_path(@venue) do %>
+      <i class="icon-small fa fa-glass"></i>
+    <% end %>
+    <span class="dot-small">&#8226;</span>
+    <%= link_to edit_venue_path(@venue) do %>
+      <i class="icon-small fa fa-pencil"></i>
+    <% end %>
+    <span class="dot-small">&#8226;</span>
+    <%= link_to new_venue_organiser_path(@venue) do %>
+      <i class="icon-small fa fa-user-plus"></i>
+    <% end %>
+    <span class="dot-small">&#8226;</span>
+    <%= link_to venue_rooms_path(@venue) do %>
+      <i class="icon-small fa fa-th-large"></i>
+    <% end %>
+  </div>
+</h3>
+
+<div class="row">
+  <div class="col-md-2">
+    <a href="#" class="thumbnail">
+      <%= image_tag("logos/#{@venue.name.split[0].downcase}_logo.jpg", size: "150x150") %>
+    </a>
+  </div>
+  <div class="col-md-3">
+    <table class="table table-condensed">
+      <tr>
+        <td>
+          <i class="fa fa-envelope"></i>
+            <% if @venue.emails.count > 0 %>
+            	<%= @venue.emails.last.email %>
+            <% else %>
+            	<%= link_to "Add Email", new_venue_email_path(@venue) %>
+            <% end %>
+        </td>  
+      </tr>
+      <tr>
+        <td>
+          <i class="fa fa-phone"></i>
+            <% if @venue.phones.count > 0 %>
+            	<%= @venue.phones.last.full_number %>
+            <% else %>
+            	<%= link_to "Add Phone", new_venue_phone_path(@venue) %>
+            <% end %>
+        </td>  
+      </tr>
+      <tr>
+        <td>
+          <i class="fa fa-clock-o"></i>
+            <% if @venue.opening_closing %>
+            	<%= @venue.opening_closing %>
+            <% else %>
+            	<%= link_to "Add Opening Times", edit_venue_path(@venue) %>
+            <% end %>
+        </td>  
+      </tr>
+      <tr>
+        <td>
+          <i class="fa fa-globe"></i>
+            <% if @venue.website %>
+            	<%= link_to "Website", @venue.website, :target => "_blank" %>
+            <% else %>
+            	<%= link_to "Add Website", edit_venue_path(@venue) %>
+            <% end %>
+        </td>  
+      </tr>
+    </table>
+  </div>
+  <div class="col-md-4 pull-right">
+    <table class="table table-condensed">
+      <thead>
+        <th class="text-center">
+        	Upcoming Events
+        </th>
+      </thead>
+      <tbody class="text-center">
+        <% @venue.events.each do |e| %>
+          <tr>
+            <td>
+              <%= link_to e.name, [@venue, e] %> on <%= e.date.strftime("%d/%m/%y") %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-5">
+		<%= @venue.history %>
+	</div>
+</div>
+<br><br><br>
+
 <%= link_to "Organisers", venue_organisers_path(@venue) %> <br>

@@ -1,11 +1,12 @@
-<%= form_for @facility do |f| %>
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
-  </p>
-  <p><%= f.submit "Submit" %></p>
+<%= simple_form_for @facility, :html=> { class: 'form-horizontal' }, wrapper: :horizontal_form  do |f| %>
+  
+	<%= f.error_notification %>
+
+  <%= f.input :name %>
+  <%= f.input :description %>
+ 	
+ 	<div class="form-group">
+    <div class="col-sm-offset-2 col-sm-6">
+      <%= f.submit "Submit", class: "btn btn-default" %>
+      
 <% end %>

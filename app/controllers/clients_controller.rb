@@ -1,5 +1,7 @@
 class ClientsController < ApplicationController
 
+	before_action :set_client, only: [:show, :edit, :update]
+
 	def index
 		@clients = Client.all
 	end
@@ -15,6 +17,10 @@ class ClientsController < ApplicationController
 		@client = Client.find(params[:id])
 	end
 
+	def edit
+		@client = Client.find(params[:id])
+	end
+
 	def create
 		@client = Client.new(client_params)
 
@@ -24,13 +30,25 @@ class ClientsController < ApplicationController
 			render 'new'
 		end
 	end
+	
+	def update
+    if @client.update(client_params)
+      redirect_to @client, notice: 'Client was successfully updated.'
+    else
+      render :edit
+    end
+  end
 
 	private
 
+	def set_client
+		@client = Client.find(params[:id])
+	end
+
   def client_params
     params.require(:client).permit(:name, 
-    															 phones_attributes:  [ :idd, :number, :typ ],
-    															 emails_attributes:  [ :email, :typ ],
-																	 addresses_attributes: [	:line1, :line2, :postcode, :city, :state, :country ])
+    															 phones_attributes:  [ :id, :idd, :number, :typ ],
+    															 emails_attributes:  [ :id, :email, :typ ],
+																	 addresses_attributes: [	:id, :line1, :line2, :postcode, :city, :state, :country_id ])
   end
 end

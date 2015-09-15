@@ -9,4 +9,7 @@ class Client < ActiveRecord::Base
 	accepts_nested_attributes_for :emails
 
 	has_many	:events
+
+	validates_presence_of :name
+
 end

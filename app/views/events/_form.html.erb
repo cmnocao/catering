@@ -1,7 +1,13 @@
-<%= form_for [@client, @event] do |f| %>
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p><%= f.submit "Submit" %></p>
+<%= simple_form_for [@client, @event], :html=> { class: 'form-horizontal' }, wrapper: :horizontal_form do |f| %>
+  
+  <%= f.error_notification %>
+
+    <%= f.input :name %>
+    <%= f.input :typ %>
+    <%= f.input :date %>
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-6">
+        <%= f.submit "Submit", class: "btn btn-default" %>
+
 <% end %>

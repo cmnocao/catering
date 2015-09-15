@@ -18,7 +18,12 @@ class EventsController < ApplicationController
 	end
 
 	def show
-		@client = Client.find( params[:client_id] )
+		@resource = request.path.split('/')[1]
+		if @resouce == "clients"
+			@resource = Client.find( params[:client_id] )
+		elsif @resource == "venues"
+			@resource = Venue.find( params[:venue_id] )
+		end	
 		@event = Event.find( params[:id] )
 	end
 
@@ -39,7 +44,7 @@ class EventsController < ApplicationController
 	private
 	
   def event_params
-    params.require(:event).permit(:name, :description)
+    params.require(:event).permit(:name, :description, :typ, :date)
   end
 end
 
