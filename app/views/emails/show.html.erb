@@ -1,0 +1,22 @@
+<h3 class="page-header">
+  Email
+  <div class="pull-right">
+    <%= link_to [:edit, @emailable, @email] do %>
+      <i class="fa fa-pencil"></i>
+    <% end %>
+  </div>
+</h3>
+
+<div class="col-md-6">
+ 
+  <div class="row">
+    <h5><%= @email.email %> ( <i><%= @email.typ %></i> )</h5>
+  </div>
+  
+  <br>
+  
+  <div class="row">
+    <%= link_to "Back", :back, :class => "btn btn-default" %>
+  </div>
+
+</div>

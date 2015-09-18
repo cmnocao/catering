@@ -31,10 +31,17 @@
         <%= render 'email', email_form: email_form %>
       <% end %>
     </div>
+    
     <br>
+
     <div class="form-group">
-      <%= client_form.submit "Submit", class: "btn btn-default" %>
+      <div class="col-sm-offset-3 col-md-6">
+        <%= client_form.submit "Submit", class: "btn btn-default" %>
+        <span class="dot-small">&#8226;</span>
+        <%= link_to "Back", :back, :class => "btn btn-default" %>
+      </div>
     </div>
+    
   </div>
 
 <% end %>

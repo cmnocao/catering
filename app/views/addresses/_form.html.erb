@@ -1,16 +1,24 @@
 <%= simple_form_for [@addressable, @address], :html=> { class: 'form-horizontal' }, wrapper: :horizontal_form do |f| %>
   
-  <%= f.error_notification %>
+  <div class="form-group">
+    <%= f.error_notification %>
+  </div>
   
-  <%= f.input :line1 %>
-  <%= f.input :line2 %>
-  <%= f.input :postcode %>
-  <%= f.input :city %>
-  <%= f.input :state %>
-  <%= f.input :country_id, :collection => Country.all, :label_method => :name, :value_method => :id, :label => "Country", selected: "United Kingdom"%>
+  <div class="form-group">
+    <%= f.input :line1 %>
+    <%= f.input :line2 %>
+    <%= f.input :postcode %>
+    <%= f.input :city %>
+    <%= f.input :state %>
+    <%= f.input :country_id, :collection => Country.all, :label_method => :name, :value_method => :id, :label => "Country", selected: "United Kingdom"%>
+  </div>
 
   <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-6">
-        <%= f.submit "Submit", class: "btn btn-default" %>
+    <div class="col-sm-offset-3 col-md-6">
+      <%= f.submit "Submit", class: "btn btn-default" %>
+      <span class="dot-small">&#8226;</span>
+      <%= link_to "Back", :back, :class => "btn btn-default" %>
+    </div>
+  </div>
 
 <% end %>

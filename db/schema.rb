@@ -39,11 +39,11 @@ ActiveRecord::Schema.define(version: 20150914165041) do
   end
 
   create_table "countries", force: :cascade do |t|
-    t.string   "name",         null: false
-    t.string   "iso2",         null: false
-    t.string   "iso3",         null: false
+    t.string   "name",                        null: false
+    t.string   "iso2",                        null: false
+    t.string   "iso3",                        null: false
     t.string   "capital_name"
-    t.boolean  "enabled",      null: false
+    t.boolean  "active",       default: true
     t.string   "nationality"
     t.string   "idd"
     t.datetime "created_at"

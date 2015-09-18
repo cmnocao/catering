@@ -1,6 +1,7 @@
 class EmailsController < ApplicationController
 
 	before_filter :load_emailable
+	before_action :set_email, only: [:show, :edit, :update]
 
 	def index
 		@emails = @emailable.emails
@@ -9,6 +10,12 @@ class EmailsController < ApplicationController
 	def new
 		@email = @emailable.emails.new
 	end
+
+	def show
+  end
+
+  def edit
+  end
 
 	def create
 		@email = @emailable.emails.new(email_params)
@@ -20,7 +27,19 @@ class EmailsController < ApplicationController
 		end
 	end
 
+	def update
+    if @email.update(email_params)
+      redirect_to [@emailable, :emails], notice: 'Email was successfully updated.'
+    else
+      render :edit
+    end
+  end
+
 	private
+
+		def set_email
+      @email = Email.find(params[:id])
+    end
 
 		def load_emailable
 			resource, id = request.path.split('/')[1,2]

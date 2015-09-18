@@ -6,7 +6,7 @@ class CreateCountries < ActiveRecord::Migration
       t.string 	:iso2, null: false
       t.string 	:iso3, null: false
       t.string 	:capital_name
-      t.boolean :enabled, null: false
+      t.boolean :active, default: true
       t.string 	:nationality
       t.string	:idd
 

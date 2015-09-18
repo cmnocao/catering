@@ -1,7 +1,7 @@
 <h3 class="page-header">
   Addresses <small> | </small><span class="badge"><%= @addressable.addresses.count %></span>
   <div class="pull-right">
-    <%= link_to new_client_address_path do %>
+    <%= link_to [:new, @addressable, :address] do %>
       <i class="fa fa-plus-circle"></i>
     <% end %>
   </div>
@@ -30,3 +30,5 @@
     <% end %>
   </tbody>
 </table>
+
+<%= link_to "Back", :back, :class => "btn btn-default" %>

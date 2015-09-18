@@ -15,6 +15,7 @@ gem 'font-awesome-sass', '4.4.0'
 gem 'gravatarify', '3.0.0'
 gem 'simple_form', '3.1.1'
 gem 'country_select'
+gem 'simple_calendar', '~> 2.0'
 
 group :development, :test do
   gem 'byebug', '6.0.2'

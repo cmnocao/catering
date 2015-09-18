@@ -1,5 +1,26 @@
-<% @emails.each do |p| %>
-	<%= p.email + p.typ %><br>
-<% end %>
+<h3 class="page-header">
+  Emails <small> | </small><span class="badge"><%= @emailable.emails.count %></span>
+  <div class="pull-right">
+    <%= link_to [:new, @emailable, :email] do %>
+      <i class="fa fa-plus-circle"></i>
+    <% end %>
+  </div>
+</h3>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @emailable.emails.each do |e| %>
+      <tr>
+        <td><%= link_to e.email, [@emailable, e] %></td>
+        <td><%= e.typ %></td>
+			</tr>
+    <% end %>
+  </tbody>
+</table>
 
-<p><%= link_to "New Email", [:new, @emailable, :email] %></p>
+<%= link_to "Back", :back, :class => "btn btn-default" %>

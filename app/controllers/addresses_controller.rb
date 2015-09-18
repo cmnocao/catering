@@ -2,6 +2,7 @@ class AddressesController < ApplicationController
 
   before_filter :load_addressable
   before_action :set_address, only: [:show, :edit, :update]
+  
   def index
     @addresses = @addressable.addresses
   end
@@ -9,7 +10,7 @@ class AddressesController < ApplicationController
   def new
     @address = @addressable.addresses.new
   end
-  
+
   def show
   end
 

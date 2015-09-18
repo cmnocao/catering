@@ -1,5 +1,28 @@
-<% @phones.each do |p| %>
-	<%= p.idd + p.number %><br>
-<% end %>
+<h3 class="page-header">
+  Phones <small> | </small><span class="badge"><%= @phoneable.phones.count %></span>
+  <div class="pull-right">
+    <%= link_to [:new, @phoneable, :phone] do %>
+      <i class="fa fa-plus-circle"></i>
+    <% end %>
+  </div>
+</h3>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>IDD</th>
+      <th>Number</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @phoneable.phones.each do |p| %>
+      <tr>
+        <td><%= p.idd %></td>
+        <td><%= link_to p.number, [@phoneable, p] %></td>
+        <td><%= p.typ %></td>
+			</tr>
+    <% end %>
+  </tbody>
+</table>
 
-<p><%= link_to "New Phone", [:new, @phoneable, :phone] %></p>
+<%= link_to "Back", :back, :class => "btn btn-default" %>

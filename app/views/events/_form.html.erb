@@ -1,13 +1,21 @@
 <%= simple_form_for [@client, @event], :html=> { class: 'form-horizontal' }, wrapper: :horizontal_form do |f| %>
   
-  <%= f.error_notification %>
+  <div class="form-group">
+  	<%= f.error_notification %>
+  </div>
 
+  <div class="form-group">
     <%= f.input :name %>
-    <%= f.input :typ %>
+    <%= f.input :typ, label: "Type", collection: [ "Reception", "Livery Dinner"] %>
     <%= f.input :date %>
-
-    <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-6">
-        <%= f.submit "Submit", class: "btn btn-default" %>
+  </div>
+  
+	<div class="form-group">
+		<div class="col-sm-offset-3 col-md-6">
+		  <%= f.submit "Submit", class: "btn btn-default" %>
+		  <span class="dot-small">&#8226;</span>
+		  <%= link_to "Back", :back, :class => "btn btn-default" %>
+		</div>
+	</div>
 
 <% end %>

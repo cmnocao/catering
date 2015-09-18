@@ -1,12 +1,32 @@
 <h3 class="page-header">
-  Address<span class="dot-small">&#8226;</span> <small><%= @address.line1 %></small>
+  Address
 </h3>
 
+<div class="col-md-6">
+ 
+	<div class="row">
+		<%= @address.line1 %>
+	</div>
+	<div class="row">
+	  <%= @address.line2 %>
+	 </div>
+	<div class="row">
+		<%= @address.postcode %>
+	</div>
+	<div class="row">
+		<%= @address.city %>
+	</div>
+	<div class="row">
+		<%= @address.state %>
+	</div>
+	<div class="row">
+		<%= @address.country.name %>
+	</div>
+
+<br>
+
 <div class="row">
-	<%= @address.line1 %><br>
-  <%= @address.line2 %><br>
-	<%= @address.postcode %><br>
-	<%= @address.city %><br>
-	<%= @address.state %><br>
-	<%= @address.country.name %><br>
+  <%= link_to "Back", :back, :class => "btn btn-default" %>
+</div>
+
 </div>
