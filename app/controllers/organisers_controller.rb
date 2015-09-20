@@ -1,6 +1,7 @@
 class OrganisersController < ApplicationController
 
 	before_filter :load_organiserable
+	before_action :set_organiser, only: [:show, :edit, :update]
 
 	def index
 		resource, id = request.path.split('/')[1,2]
@@ -20,6 +21,8 @@ class OrganisersController < ApplicationController
 		@organiser = Organiser.find( params[:id] )
 	end
 
+	def edit
+	end
 
 	def create
 		@organiser = @organiserable.organisers.new(organiser_params)
@@ -29,6 +32,14 @@ class OrganisersController < ApplicationController
 		else
 			render 'new'
 		end
+	end
+
+	def update
+		if @organiser.update(organiser_params)
+      redirect_to @organiser, notice: 'Organiser was successfully updated.'
+    else
+      render :edit
+    end
 	end
 
 	def all
@@ -48,20 +59,10 @@ class OrganisersController < ApplicationController
 	    params.require(:organiser).permit(:name, 
     															 phones_attributes:  [ :idd, :number, :typ ],
     															 emails_attributes:  [ :email, :typ ],
-																	 addresses_attributes: [	:line1, :line2, :postcode, :city, :state, :country ])
+																	 addresses_attributes: [	:line1, :line2, :postcode, :city, :state, :country_id ])
 	  end
 
+	  def set_organiser
+		@organiser = Organiser.find(params[:id])
+	end
 end
-
-# def index
-# 	resource, id = request.path.split('/')[1,2]
-# 	resource = resource.singularize.classify.constantize
-# 	@client = resource.find(params[:client_id])
-# 	@organisers = Organiser.where("organiserable_type = ? AND organiserable_id = ?", resource, id)
-# end
-
-# def index
-# 	@organisers = @organiserable.organisers
-# 	@organisers_by_client = Organiser.where("organiserable_id = ? AND organiserable_type = ?", params[:client_id], "Client")
-# 	@organisers_by_venue = Organiser.where("organiserable_id = ? AND organiserable_type = ?", params[:venue_id], "Venue")
-# end

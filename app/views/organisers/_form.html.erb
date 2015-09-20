@@ -1,23 +1,43 @@
 <%= simple_form_for [@organiserable, @organiser], :html=> { class: 'form-horizontal' }, wrapper: :horizontal_form do |organiser_form| %>
     
-  <%= organiser_form.error_notification %>
+  <div class="form-group">
+    <%= organiser_form.error_notification %>
+  </div>
 
-  <%= organiser_form.input :name %>
+  <h4 class="page-header">Details</h4>
+  <div class="form-group">
+    <%= organiser_form.input :name %>
+  </div>
 
-	<%= organiser_form.simple_fields_for :phones do |phone_form| %>
-		<%= render 'phone', phone_form: phone_form %>
-  <% end %>
+  <h4 class="page-header">Phone</h4>
+  <div class="form-group">
+    <%= organiser_form.simple_fields_for :phones do |phone_form| %>
+      <%= render 'phone', phone_form: phone_form %>
+    <% end %>
+  </div>
 
-  <%= organiser_form.simple_fields_for :addresses do |address_form| %>
-		<%= render 'address', address_form: address_form %>
-  <% end %>
+  <h4 class="page-header">Address</h4>
+  <div class="form-group">
+    <%= organiser_form.simple_fields_for :addresses do |address_form| %>
+      <%= render 'address', address_form: address_form %>
+    <% end %>
+  </div>
 
-  <%= organiser_form.simple_fields_for :emails do |email_form| %>
-		<%= render 'email', email_form: email_form %>
-  <% end %>
+  <h4 class="page-header">E-Mail</h4>
+  <div class="form-group">
+    <%= organiser_form.simple_fields_for :emails do |email_form| %>
+      <%= render 'email', email_form: email_form %>
+    <% end %>
+  </div>
+  
+  <br>
 
   <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-6">
-        <%= organiser_form.submit "Submit", class: "btn btn-default" %>
-
+    <div class="col-sm-offset-3 col-md-6">
+      <%= organiser_form.submit "Submit", class: "btn btn-default" %>
+      <span class="dot-small">&#8226;</span>
+      <%= link_to "Back", :back, :class => "btn btn-default" %>
+    </div>
+  </div>
+    
 <% end %>

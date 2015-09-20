@@ -18,8 +18,8 @@ clients = Client.create!([
 		{name: "Fabio Gubert"}])
 
 events = Event.create!([
-		{name: "Mrs and Mr Smith's Wedding", typ: "Wedding", description: "very sophisticated wedding", client_id: 1, venue_id: 1, date: "23/08/15"},
-		{name: "JP Morgan Reception", typ: "Reception", description: "Just a normal reception", client_id: 1, venue_id: 1, date: "24/08/15"}])
+		{name: "Mrs and Mr Smith's Wedding", typ: "Wedding", description: "very sophisticated wedding", client_id: 1, venue_id: 1, start_time: "2015/08/23", end_time: "2015/08/24"},
+		{name: "JP Morgan Reception", typ: "Reception", description: "Just a normal reception", client_id: 1, venue_id: 1, start_time: "2015/08/15", end_time: "2015/08/15"}])
 
 rooms = Room.create!([
 		{name: "Great Hall", description: "Dating back to 1670 with its paintings, tapestries and Coat of Arms, the main hall can accommodate up to 170 guests for a presentation or dinner.", layouts: true, venue_id: 1},

@@ -2,6 +2,10 @@
   <%= @venue.name.titleize %> <span class="dot-small">&#8226;</span> <small><%= @venue.class %></small>
   <div class="pull-right">
     <%= link_to venue_events_path(@venue) do %>
+      <i class="icon-small fa fa-calendar"></i>
+    <% end %>
+    <span class="dot-small">&#8226;</span>
+    <%= link_to venue_events_path(@venue) do %>
       <i class="icon-small fa fa-glass"></i>
     <% end %>
     <span class="dot-small">&#8226;</span>
@@ -79,9 +83,11 @@
       <tbody class="text-center">
         <% @venue.events.each do |e| %>
           <tr>
-            <td>
-              <%= link_to e.name, [@venue, e] %> on <%= e.date.strftime("%d/%m/%y") %>
-            </td>
+            <% if e.upcoming?  %>
+              <td>
+                <%= link_to e.name, [@client, e] %> on <%= e.start_time.strftime("%d/%m/%y") %>
+              </td>
+            <% end %>
           </tr>
         <% end %>
       </tbody>

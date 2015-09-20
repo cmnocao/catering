@@ -1,47 +1,43 @@
 <%= simple_form_for (setup_client(@client)), :html=> { class: 'form-horizontal' }, wrapper: :horizontal_form do |client_form| %>
-  
-  <div class="col-sm-offset-3 col-md-6">
 
-    <div class="form-group">
-      <%= client_form.error_notification %>
-    </div>
-
-    <h4 class="page-header">Details</h4>
-    <div class="form-group">
-      <%= client_form.input :name %>
-    </div>
-
-    <h4 class="page-header">Phone</h4>
-    <div class="form-group">
-      <%= client_form.simple_fields_for :phones do |phone_form| %>
-        <%= render 'phone', phone_form: phone_form %>
-      <% end %>
-    </div>
-
-    <h4 class="page-header">Address</h4>
-    <div class="form-group">
-      <%= client_form.simple_fields_for :addresses do |address_form| %>
-        <%= render 'address', address_form: address_form %>
-      <% end %>
-    </div>
-
-    <h4 class="page-header">E-Mail</h4>
-    <div class="form-group">
-      <%= client_form.simple_fields_for :emails do |email_form| %>
-        <%= render 'email', email_form: email_form %>
-      <% end %>
-    </div>
-    
-    <br>
-
-    <div class="form-group">
-      <div class="col-sm-offset-3 col-md-6">
-        <%= client_form.submit "Submit", class: "btn btn-default" %>
-        <span class="dot-small">&#8226;</span>
-        <%= link_to "Back", :back, :class => "btn btn-default" %>
-      </div>
-    </div>
-    
+  <div class="form-group">
+    <%= client_form.error_notification %>
   </div>
 
+  <h4 class="page-header">Details</h4>
+  <div class="form-group">
+    <%= client_form.input :name %>
+  </div>
+
+  <h4 class="page-header">Phone</h4>
+  <div class="form-group">
+    <%= client_form.simple_fields_for :phones do |phone_form| %>
+      <%= render 'phone', phone_form: phone_form %>
+    <% end %>
+  </div>
+
+  <h4 class="page-header">Address</h4>
+  <div class="form-group">
+    <%= client_form.simple_fields_for :addresses do |address_form| %>
+      <%= render 'address', address_form: address_form %>
+    <% end %>
+  </div>
+
+  <h4 class="page-header">E-Mail</h4>
+  <div class="form-group">
+    <%= client_form.simple_fields_for :emails do |email_form| %>
+      <%= render 'email', email_form: email_form %>
+    <% end %>
+  </div>
+  
+  <br>
+
+  <div class="form-group">
+    <div class="col-sm-offset-3 col-md-6">
+      <%= client_form.submit "Submit", class: "btn btn-default" %>
+      <span class="dot-small">&#8226;</span>
+      <%= link_to "Back", :back, :class => "btn btn-default" %>
+    </div>
+  </div>
+    
 <% end %>

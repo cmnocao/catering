@@ -1,16 +1,20 @@
 <h3 class="page-header">
   <%= @client.name %> <span class="dot-small">&#8226;</span> <small><%= @client.class %></small>
   <div class="pull-right">
+    <%= link_to client_events_path(@client) do %>
+      <i class="icon-small fa fa-calendar"></i>
+    <% end %>
+    <span class="dot-small">&#8226;</span>
     <%= link_to new_client_event_path(@client) do %>
-      <i class="icon-small fa fa-glass fa-lg"></i>
+      <i class="icon-small fa fa-glass"></i>
     <% end %>
     <span class="dot-small">&#8226;</span>
     <%= link_to edit_client_path(@client) do %>
-      <i class="icon-small fa fa-pencil fa-lg"></i>
+      <i class="icon-small fa fa-pencil"></i>
     <% end %>
     <span class="dot-small">&#8226;</span>
     <%= link_to new_client_organiser_path(@client) do %>
-      <i class="icon-small fa fa-user-plus fa-lg"></i>
+      <i class="icon-small fa fa-user-plus"></i>
     <% end %>
   </div>
 </h3>
@@ -58,20 +62,20 @@
   <div class="col-md-5 pull-right">
     <table class="table table-condensed">
       <thead>
-        <th class="text-center">Name</th>
-        <th class="text-center">Date</th>
+        <th class="text-center">Upcoming Events</th>
       </thead>
       <tbody class="text-center">
         <% @client.events.each do |e| %>
           <tr>
+            <% if e.venue? && e.upcoming?  %>
+              <td>
+                <%= link_to e.name, [@client, e] %> @ <%= link_to e.venue.name, event_venue_path(e.venue_id)%> on <%= e.start_time.strftime("%d/%m/%y") %>
+              </td>
+            <% elsif e.venue_id? == false && e.upcoming? %>
             <td>
-              <% if e.venue_id != nil  %>
-                <%= link_to e.name, [@client, e] %> @ <%= link_to e.venue.name, venue_path(e.venue)%> on <%= e.date.strftime("%d/%m/%y") %>
-              <% end %>
-            </td>
-            <td>
-              
-            </td>
+              <%= link_to e.name, [@client, e] %> @ <%= link_to "Add Venue", edit_client_event_path(@client, e)%> on <%= e.start_time.strftime("%d/%m/%y") %>
+              </td>
+            <% end %>
           </tr>
         <% end %>
       </tbody>

@@ -3,4 +3,4 @@
 <%= address_form.input :postcode %>
 <%= address_form.input :city %>
 <%= address_form.input :state %>
-<%= address_form.country_select :country %>
+<%= address_form.input :country_id, :collection => Country.all, :label_method => :name, :value_method => :id, :label => "Country", selected: "United Kingdom"%>

@@ -8,8 +8,8 @@ class CreateEvents < ActiveRecord::Migration
     	t.integer	:client_id,   null: false
         t.integer   :venue_id
     	t.boolean	:active, 	  default: true
-        t.date      :date,        null: false
-
+        t.datetime  :start_time
+        t.datetime  :end_time
 
     	t.timestamps
     end

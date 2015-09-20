@@ -1,6 +1,29 @@
+<h3 class="page-header">
+  Event
+  <div class="pull-right">
+    <%= link_to edit_client_event_path(@event.client_id, @event) do %>
+      <i class="fa fa-pencil"></i>
+    <% end %>
+  </div>
+</h3>
 
-	<%= @event.name %><br>
-	<%= @event.description %><br>
+<div class="col-md-6">
+ 
+  
+  <h5><%= @event.name %></h5>
+    <% if @event.venue_id != nil %>
+      <%= @event.venue.name %><br>
+    <% end %>
+  <%= @event.description %><br>
+  <%= @event.start_time %><br>
+  <%= @event.end_time %><br>
+  <br>
+  
+  <div class="row">
+    <%= link_to "Back", :back, :class => "btn btn-default" %>
+  </div>
+
+</div>
 
 
 

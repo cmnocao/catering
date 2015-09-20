@@ -69,7 +69,8 @@ ActiveRecord::Schema.define(version: 20150914165041) do
     t.integer  "client_id",                  null: false
     t.integer  "venue_id"
     t.boolean  "active",      default: true
-    t.date     "date",                       null: false
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

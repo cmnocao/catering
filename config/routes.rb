@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   get '/organisers', to:'organisers#all'
-  get '/events', to:'events#all'
 
   resources :clients do
     resources :events
