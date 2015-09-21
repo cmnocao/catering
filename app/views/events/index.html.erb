@@ -19,7 +19,7 @@
 				<tr>
 					<% if e.venue_id? && e.upcoming? %>
 						<td>
-							<%= link_to e.name, client_event_path(e.client_id, e) %> @ <%= link_to e.venue.name, venue_path(e.venue_id)%>
+							<%= link_to "#{e.name}'s #{e.typ}", client_event_path(e.client_id, e) %> @ <%= link_to e.venue.name, venue_path(e.venue_id)%>
 						</td>
 					<% elsif e.venue_id? == false && e.upcoming? %>
 						<td>

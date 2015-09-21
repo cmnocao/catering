@@ -18,3 +18,8 @@
 //= require moment
 //= require bootstrap-datetimepicker
 //= require pickers
+
+
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})

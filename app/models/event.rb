@@ -16,7 +16,6 @@ class Event < ActiveRecord::Base
 		end
 	end
 
-
 	scope :upcoming, lambda { where('start_time >= ?', Time.now) }
 	scope :past, lambda { where('end_time <= ?', Time.now) }
 end

@@ -63,6 +63,16 @@
       </tr>
       <tr>
         <td>
+          <i class="fa fa-phone"></i>
+            <% if @venue.addresses.count > 0 %>
+              <%= @venue.addresses.last.short_address %>
+            <% else %>
+              <%= link_to "Add Address", new_venue_address_path(@venue) %>
+            <% end %>
+        </td>  
+      </tr>
+      <tr>
+        <td>
           <i class="fa fa-globe"></i>
             <% if @venue.website %>
             	<%= link_to "Website", @venue.website, :target => "_blank" %>

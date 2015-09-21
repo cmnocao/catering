@@ -3,9 +3,9 @@
 	<%= events.each do |e| %>
 		<div>
 			<% if e.venue_id != nil %>
-				<%= link_to e.name, client_event_path(e.client_id, e) %> @ <%= e.venue.name %>
+				<%= link_to e.typ, client_event_path(e.client_id, e), data: {toggle: "tooltip"}, title: "#{e.name}'s #{e.typ}", rel: 'tooltip'%> @ <%= link_to e.venue.short_name, venue_path(e.venue_id) %>
 			<% else %>
-				<%= link_to e.name, client_event_path(e.client_id, e) %>
+				<%= link_to e.typ, client_event_path(e.client_id, e) %>
 			<% end %>
 	  </div>
   <% end %>

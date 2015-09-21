@@ -4,7 +4,11 @@ class Address < ActiveRecord::Base
 
 	validates_presence_of [:line1, :postcode, :city, :country_id]
 
-	def display_address
-		"#{line1}" + " * " + "#{city}"
+	def full_address
+		"#{line1} - #{line2} - #{postcode} - #{city} - #{state} - #{country.name}"
+	end
+
+	def short_address
+		"#{line1} - #{postcode} - #{city}"
 	end
 end
