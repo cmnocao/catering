@@ -12,21 +12,21 @@
   <h4 class="page-header">Phone</h4>
   <div class="form-group">
     <%= organiser_form.simple_fields_for :phones do |phone_form| %>
-      <%= render 'phone', phone_form: phone_form %>
+      <%= render '/forms/phone', phone_form: phone_form %>
     <% end %>
   </div>
 
   <h4 class="page-header">Address</h4>
   <div class="form-group">
     <%= organiser_form.simple_fields_for :addresses do |address_form| %>
-      <%= render 'address', address_form: address_form %>
+      <%= render '/forms/address', address_form: address_form %>
     <% end %>
   </div>
 
   <h4 class="page-header">E-Mail</h4>
   <div class="form-group">
     <%= organiser_form.simple_fields_for :emails do |email_form| %>
-      <%= render 'email', email_form: email_form %>
+      <%= render '/forms/email', email_form: email_form %>
     <% end %>
   </div>
   

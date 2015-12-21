@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150914165041) do
+ActiveRecord::Schema.define(version: 20150921115040) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "line1",                           null: false
@@ -125,6 +125,12 @@ ActiveRecord::Schema.define(version: 20150914165041) do
     t.boolean  "layouts",     default: false
     t.integer  "venue_id",                    null: false
     t.boolean  "active",      default: true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "staffs", force: :cascade do |t|
+    t.string   "name",       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

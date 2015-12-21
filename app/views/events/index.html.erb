@@ -1,5 +1,10 @@
 <h3 class="page-header">
   Events <small> | </small><span class="badge"><%= @events.count %></span>
+	<div class="pull-right">
+    <%= link_to events_list_path do %>
+      <i class="fa fa-bars"></i>
+    <% end %>
+  </div>
 </h3>
 
 <div class="col-md-8">

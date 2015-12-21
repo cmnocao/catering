@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get '/organisers', to:'organisers#all'
+  get '/events_list', to:'events#list_all'
 
   resources :clients do
     resources :events
@@ -27,7 +28,7 @@ Rails.application.routes.draw do
 
   resources :events
   resources :facilities
-    
+  resources :staffs    
 
   root 'home#index'
 

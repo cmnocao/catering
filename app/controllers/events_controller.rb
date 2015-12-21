@@ -18,6 +18,10 @@ class EventsController < ApplicationController
 		@event = Event.new
 	end
 
+	def list_all
+		@events = Event.all
+	end
+
 	def show
 		@resource = request.path.split('/')[1]
 		if @resouce == "clients"
