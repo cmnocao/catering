@@ -1,6 +1,7 @@
 class Event < ActiveRecord::Base
 	belongs_to :venue
 	belongs_to :client
+	has_many :staffs
 
 	def venue?
 		if venue_id != nil

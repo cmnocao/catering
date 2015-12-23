@@ -51,7 +51,7 @@
         <td>
           <i class="fa fa-map-marker"></i>            
             <% if @client.phones.count > 0 %>
-              <%= @client.addresses.last.display_address %>
+              <%= @client.addresses.last.short_address %>
             <% else %>
               <%= link_to "Add Address", new_client_address_path(@client) %>
             <% end %>

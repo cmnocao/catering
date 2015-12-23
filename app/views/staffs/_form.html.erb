@@ -1,0 +1,44 @@
+<%= simple_form_for @staff, :html=> { class: 'form-horizontal' }, wrapper: :horizontal_form do |staff_form| %>
+
+  <div class="form-group">
+    <%= staff_form.error_notification %>
+  </div>
+
+  <h4 class="page-header">Details</h4>
+  <div class="form-group">
+    <%= staff_form.input :name %>
+    <%= staff_form.input :category, label: "Category", collection: [ "Manager", "Chef", "Porter", "Capitan", "A", "B", "C"], selected: "Manager" %>
+  </div>
+
+  <h4 class="page-header">Phone</h4>
+  <div class="form-group">
+    <%= staff_form.simple_fields_for :phones do |phone_form| %>
+      <%= render '/forms/phone', phone_form: phone_form %>
+    <% end %>
+  </div>
+
+  <h4 class="page-header">Address</h4>
+  <div class="form-group">
+    <%= staff_form.simple_fields_for :addresses do |address_form| %>
+      <%= render '/forms/address', address_form: address_form %>
+    <% end %>
+  </div>
+
+  <h4 class="page-header">E-Mail</h4>
+  <div class="form-group">
+    <%= staff_form.simple_fields_for :emails do |email_form| %>
+      <%= render '/forms/email', email_form: email_form %>
+    <% end %>
+  </div>
+  
+  <br>
+
+  <div class="form-group">
+    <div class="col-sm-offset-3 col-md-6">
+      <%= staff_form.submit "Submit", class: "btn btn-default" %>
+      <span class="dot-small">&#8226;</span>
+      <%= link_to "Back", :back, :class => "btn btn-default" %>
+    </div>
+  </div>
+    
+<% end %>

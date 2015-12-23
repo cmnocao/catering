@@ -130,7 +130,9 @@ ActiveRecord::Schema.define(version: 20150921115040) do
   end
 
   create_table "staffs", force: :cascade do |t|
-    t.string   "name",       null: false
+    t.string   "name",                      null: false
+    t.string   "category",                  null: false
+    t.boolean  "active",     default: true
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,0 +1,60 @@
+<h3 class="page-header">
+  <%= @staff.name %> <span class="dot-small">&#8226;</span> <small><%= @staff.class %></small> <span class="dot-small">&#8226;</span><small> <%=@staff.category %></small>
+  <div class="pull-right">
+    <span class="dot-small">&#8226;</span>
+    <%= link_to new_staff_path do %>
+      <i class="icon-small fa fa-glass"></i>
+    <% end %>
+    <span class="dot-small">&#8226;</span>
+    <%= link_to edit_staff_path(@staff) do %>
+      <i class="icon-small fa fa-pencil"></i>
+    <% end %>
+  </div>
+</h3>
+
+<div class="row">
+  <div class="col-md-2">
+    <a href="#" class="thumbnail">
+      <%= gravatar_tag @staff.emails.last, size: 170 %>
+    </a>
+  </div>
+  <div class="col-md-3">
+    <table class="table table-condensed">
+      <tr>
+        <td>
+          <i class="fa fa-envelope"></i>
+            <% if @staff.emails.count > 0 %>
+              <%= @staff.emails.last.email %>
+            <% else %>
+              <%= link_to "Add Email", new_staff_email_path(@staff) %>
+            <% end %>
+        </td>  
+      </tr>
+      <tr>
+        <td>
+          <i class="fa fa-phone"></i>
+            <% if @staff.phones.count > 0 %>
+              <%= @staff.phones.last.full_number %>
+            <% else %>
+              <%= link_to "Add Phone", new_staff_phone_path(@staff) %>
+            <% end %>
+        </td>  
+      </tr>
+      <tr>
+        <td>
+          <i class="fa fa-map-marker"></i>            
+            <% if @staff.phones.count > 0 %>
+              <%= @staff.addresses.last.short_address %>
+            <% else %>
+              <%= link_to "Add Address", new_staff_address_path(@staff) %>
+            <% end %>
+        </td>  
+      </tr>
+    </table>
+  </div>
+  
+</div>
+
+
+
+
