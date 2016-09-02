@@ -4,6 +4,8 @@ class StaffsController < ApplicationController
 
 	def index
 		@staffs = Staff.all
+
+		smart_listing_create :staffs, Staff.all, partial: "staffs/list", default_sort: {name: "asc"}
 	end
 
 	def new
@@ -11,6 +13,7 @@ class StaffsController < ApplicationController
 		@staff.phones.build
 		@staff.emails.build
 		@staff.addresses.build
+		@staff.categories.build
 	end
 
 	def show
@@ -44,9 +47,10 @@ class StaffsController < ApplicationController
 	end
 
   def staff_params
-    params.require(:staff).permit(:name, :category, :active, 
-    															 phones_attributes:  [ :id, :idd, :number, :typ ],
-    															 emails_attributes:  [ :id, :email, :typ ],
-																	 addresses_attributes: [	:id, :line1, :line2, :postcode, :city, :state, :country_id ])
+    params.require(:staff).permit(:name, 
+    															 categories_attributes: [ :id, :name ],
+    															 phones_attributes:  		[ :id, :idd, :number, :typ ],
+    															 emails_attributes:  		[ :id, :email, :typ ],
+																 addresses_attributes: 	[	:id, :line1, :line2, :postcode, :city, :state, :country_id ])
   end
 end

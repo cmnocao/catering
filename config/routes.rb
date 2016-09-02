@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root 'home#index'
+
   get '/organisers', to:'organisers#all'
   get '/events_list', to:'events#list_all'
 
@@ -25,11 +27,18 @@ Rails.application.routes.draw do
     resources :events
     resources :rooms
   end
+  
+  resources :staffs do
+    resources :phones
+    resources :emails
+    resources :addresses
+    resources :events
+    resources :categories
+  end
 
   resources :events
   resources :facilities
-  resources :staffs    
-
-  root 'home#index'
+  resources :staffs
+  resources :categories    
 
 end

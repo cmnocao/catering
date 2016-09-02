@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 
-
+ruby '2.3.0'
 gem 'rails', '4.2.3'
+
 gem 'sqlite3', '1.3.10'
 gem 'sass-rails', '5.0.3'
 gem 'uglifier', '2.7.1'
@@ -17,6 +18,8 @@ gem 'simple_form', '3.1.1'
 gem 'simple_calendar', '2.0.1' #https://github.com/excid3/simple_calendar
 gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
 gem 'momentjs-rails', '~> 2.9',  :github => 'derekprior/momentjs-rails'
+gem 'bootstrap-select-rails', '1.6.3'
+gem 'smart_listing'
 
 group :development, :test do
   gem 'byebug', '6.0.2'

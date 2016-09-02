@@ -18,7 +18,8 @@
 //= require moment
 //= require bootstrap-datetimepicker
 //= require pickers
-//= require drag_drop
+//= require bootstrap-select
+//= require smart_listing
 
 
 $(function () {

@@ -1,0 +1,24 @@
+<h3 class="page-header">
+  Staff Categories <small> | </small><span class="badge"><%= @staff_categories.count %></span>
+  <div class="pull-right">
+    <%= link_to new_staff_category_path do %>
+      <i class="fa fa-plus-circle"></i>
+    <% end %>
+  </div>
+</h3>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Category</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @staff_categories.each do |s| %>
+      <tr>
+        <td><%= s.name %></td>
+			</tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "Back", :back, :class => "btn btn-default" %>

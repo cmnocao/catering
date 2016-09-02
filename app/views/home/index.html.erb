@@ -1,16 +1,5 @@
-<h2>Page Elements</h2>
-<p>
-	Drag the elements on the right into the drop area.
-</p>
-<div id="dd-elements" class="clearfix">
-	<ul id="drag-elements">
-		<% @staffs.each do |s| %>
-        <li draggable="true"><%= s.name %></li>
-    <% end %>
-	</ul>
-	<% @events.each do |e| %>
-    <div id="drop-target-<%= e.id %>">
-			<%= e.name %>
-		</div>
-    <% end %>
-</div>
+<select class="selectpicker">
+  <option>Mustard</option>
+  <option>Ketchup</option>
+  <option>Relish</option>
+</select>

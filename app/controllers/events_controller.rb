@@ -2,6 +2,7 @@ class EventsController < ApplicationController
 	
 	before_action :set_event, only: [:show, :edit, :update]
 	before_action :set_client, only: [:new, :show, :edit, :create, :update]
+	before_action :set_staff, only: [:show, :edit, :update]
 	
 	def index
 		@resource = request.path.split('/')[1]
@@ -9,6 +10,8 @@ class EventsController < ApplicationController
 			@events = Event.where( "client_id = ?", params[:client_id] )
 		elsif @resource == "venues"
 			@events = Event.where( "venue_id = ?", params[:venue_id] )
+		elsif @resource == "staffs"
+			@events = Staff.where( "staff_id = ?", params[:staff_id] )
 		else
 			@events = Event.all
 		end
@@ -28,6 +31,8 @@ class EventsController < ApplicationController
 			@resource = Client.find( params[:client_id] )
 		elsif @resource == "venues"
 			@resource = Venue.find( params[:venue_id] )
+		elsif @resource == "staffs"
+			@resource = Staff.find( params[:staff_id] )
 		end	
 	end
 

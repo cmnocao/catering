@@ -7,7 +7,9 @@
   <h4 class="page-header">Details</h4>
   <div class="form-group">
     <%= staff_form.input :name %>
-    <%= staff_form.input :category, label: "Category", collection: [ "Manager", "Chef", "Porter", "Capitan", "A", "B", "C"], selected: "Manager" %>
+    <%= staff_form.simple_fields_for :categories do |category_form| %>
+      <%= render '/forms/category', category_form: category_form %>
+    <% end %>
   </div>
 
   <h4 class="page-header">Phone</h4>

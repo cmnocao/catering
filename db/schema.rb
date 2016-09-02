@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150921115040) do
+ActiveRecord::Schema.define(version: 20160103153111) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "line1",                           null: false
@@ -30,6 +30,17 @@ ActiveRecord::Schema.define(version: 20150921115040) do
   add_index "addresses", ["addressable_id"], name: "index_addresses_on_addressable_id"
   add_index "addresses", ["addressable_type"], name: "index_addresses_on_addressable_type"
   add_index "addresses", ["country_id"], name: "index_addresses_on_country_id"
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name",                              null: false
+    t.boolean  "active",             default: true
+    t.integer  "categorizable_id"
+    t.string   "categorizable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "categories", ["categorizable_id", "categorizable_type"], name: "index_categories_on_categorizable_id_and_categorizable_type"
 
   create_table "clients", force: :cascade do |t|
     t.string   "name",                      null: false
@@ -129,9 +140,14 @@ ActiveRecord::Schema.define(version: 20150921115040) do
     t.datetime "updated_at"
   end
 
+  create_table "staff_lists", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "staffs", force: :cascade do |t|
     t.string   "name",                      null: false
-    t.string   "category",                  null: false
     t.boolean  "active",     default: true
     t.datetime "created_at"
     t.datetime "updated_at"

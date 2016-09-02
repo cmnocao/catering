@@ -31,9 +31,33 @@ rooms = Room.create!([
 		{name: "Old Court Room", description: "A lovely intimate room suitable for receptions, smaller dinners or dancing.", layouts: true, venue_id: 1},
 		{name: "Roof Garden", description: "A unique oasis for Summer entertaining hidden from the busy City.", layouts: false, venue_id: 1},
 		{name: "Court Room", description: "A perfect formal setting for key business meetings or presentations.", layouts: false, venue_id: 1},
-		{name: "Parlour Room", description: "An elegant additional room suitable for smaller meetings or ‘break out’ discussions.", layouts: false, venue_id: 1},
+		{name: "Parlour", description: "An elegant additional room suitable for smaller meetings or ‘break out’ discussions.", layouts: false, venue_id: 1},
 		{name: "Entrance Courtyard", description: "Enter a different world through the ceremonial gates from Dowgate Hill.", layouts: false, venue_id: 1},
 		{name: "Library", description: "A small private drawing room for VIP receptions, or a bride and groom to find some privacy.", layouts: false, venue_id: 1}])
 
 addresses = Address.create!([
 		{line1: "40 Gutter Lane", line2: "", postcode: "EC2V 6BR", city: "London", state: "", country_id: "1", active: true, addressable_id: 2, addressable_type: "Venue"}])
+
+staffs = Staff.create!([
+		{name: "Marzena"},
+		{name: "Fred"},
+		{name: "Lauren"},
+		{name: "Habib"}])
+
+categories = Category.create!([
+		{name: "Capitan"},
+		{name: "A"},
+		{name: "B"},
+		{name: "B New"},
+		{name: "Manager"},
+		{name: "Porter"},
+		{name: "Chef"}])
+
+
+
+
+
+
+
+
+
