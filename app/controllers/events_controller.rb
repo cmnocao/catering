@@ -2,7 +2,6 @@ class EventsController < ApplicationController
 	
 	before_action :set_event, only: [:show, :edit, :update]
 	before_action :set_client, only: [:new, :show, :edit, :create, :update]
-	before_action :set_staff, only: [:show, :edit, :update]
 	
 	def index
 		@resource = request.path.split('/')[1]
@@ -63,12 +62,11 @@ class EventsController < ApplicationController
 	end
 
 	def set_client
-		@client = Client.find( params[:client_id] )
+		@client = Client.find( params[:id] )
+	end	
+
+	def event_params
+	  params.require(:event).permit(:name, :description, :typ, :venue_id, :client_id, :status, :start_time, :timing, :menu, :special_diets, :more_info)
 	end
 
-  def event_params
-    params.require(:event).permit(:name, :description, :typ, :venue_id, :start_time, :end_time)
-  end
-
-  
 end

@@ -69,7 +69,7 @@
           <tr>
             <% if e.venue? && e.upcoming?  %>
               <td>
-                <%= link_to e.name, [@client, e] %> @ <%= link_to e.venue.name, event_venue_path(e.venue_id)%> on <%= e.start_time.strftime("%d/%m/%y") %>
+                <%= link_to e.name, [@client, e] %> @ <%= link_to e.venue.name %> on <%= e.start_time.strftime("%d/%m/%y") %>
               </td>
             <% elsif e.venue_id? == false && e.upcoming? %>
             <td>

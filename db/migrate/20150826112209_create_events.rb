@@ -7,9 +7,12 @@ class CreateEvents < ActiveRecord::Migration
         t.string    :typ,         null: false
     	t.integer	:client_id,   null: false
         t.integer   :venue_id
-    	t.boolean	:active, 	  default: true
+        t.text      :timing
+        t.text      :menu
+        t.text      :special_diets
+        t.text      :more_info
+        t.string    :status,      null: false
         t.datetime  :start_time
-        t.datetime  :end_time
 
     	t.timestamps
     end

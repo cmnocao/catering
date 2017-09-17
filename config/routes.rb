@@ -39,6 +39,8 @@ Rails.application.routes.draw do
   resources :events
   resources :facilities
   resources :staffs
-  resources :categories    
+  resources :categories
+  resources :venues
+  resources :equipments
 
 end

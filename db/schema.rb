@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160103153111) do
+ActiveRecord::Schema.define(version: 20170529180004) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "line1",                           null: false
@@ -73,15 +73,25 @@ ActiveRecord::Schema.define(version: 20160103153111) do
 
   add_index "emails", ["emailable_id", "emailable_type"], name: "index_emails_on_emailable_id_and_emailable_type"
 
+  create_table "equipments", force: :cascade do |t|
+    t.integer  "category",   null: false
+    t.string   "name",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "events", force: :cascade do |t|
-    t.string   "name",                       null: false
+    t.string   "name",          null: false
     t.text     "description"
-    t.string   "typ",                        null: false
-    t.integer  "client_id",                  null: false
+    t.string   "typ",           null: false
+    t.integer  "client_id",     null: false
     t.integer  "venue_id"
-    t.boolean  "active",      default: true
+    t.text     "timing"
+    t.text     "menu"
+    t.text     "special_diets"
+    t.text     "more_info"
+    t.string   "status",        null: false
     t.datetime "start_time"
-    t.datetime "end_time"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

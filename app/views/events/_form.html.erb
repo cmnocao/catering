@@ -5,11 +5,11 @@
   </div>
 
   <div class="form-group">
+    <%= f.input :start_time, as: 'datetime'%>
     <%= f.input :name %>
     <%= f.input :typ, label: "Type", collection: [ "Reception", "Livery Dinner", "Wedding"] %>
     <%= f.input :venue_id, :collection => Venue.all, :label_method => :name, :value_method => :id, :label => "Venue"%>
-    <%= f.input :start_time, :as => :datetime_picker, label: "Start" %>
-    <%= f.input :end_time, :as => :datetime_picker, label: "End" %>
+    <%= f.input :status, label: "Status", collection: [ "Prospecting", "Quote Sent", "Negotiation", "Booking not Feasible", "Confirmed", "Lost", "Ongoing" ] %>
   </div>
   
 	<div class="form-group">

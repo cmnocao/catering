@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 
-ruby '2.3.0'
+ruby '2.3.1'
 gem 'rails', '4.2.3'
 
 gem 'sqlite3', '1.3.10'
-gem 'sass-rails', '5.0.3'
+gem 'sass-rails', '~> 5.0', '>= 5.0.6'
 gem 'uglifier', '2.7.1'
 gem 'coffee-rails', '4.1.0'
 gem 'jquery-rails', '4.0.4'
@@ -20,6 +20,7 @@ gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: '
 gem 'momentjs-rails', '~> 2.9',  :github => 'derekprior/momentjs-rails'
 gem 'bootstrap-select-rails', '1.6.3'
 gem 'smart_listing'
+gem 'sprockets', '3.7.0'
 
 group :development, :test do
   gem 'byebug', '6.0.2'

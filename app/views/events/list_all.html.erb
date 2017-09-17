@@ -7,7 +7,6 @@
     <tr>
       <th>Name</th>
 			<th>Venue</th>
-			<th>Date</th>
     </tr>
   </thead>
   <tbody>
@@ -15,7 +14,6 @@
       <tr>
         <td><b><%= link_to e.name, event_path(e) %></b></td>
         <td><b><%= link_to e.venue.name, venue_path(e.venue_id) %></b></td>
-        <td><b><%= e.start_time %></b></td>
       </tr>
     <% end %>
   </tbody>

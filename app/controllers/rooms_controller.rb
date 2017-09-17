@@ -3,6 +3,7 @@ class RoomsController < ApplicationController
 	def index
 		@venue = Venue.find( params[:venue_id] )
 		@rooms = Room.all
+		@venue_rooms = @venue.rooms
 	end
 
 	def new

@@ -1,0 +1,11 @@
+<%= simple_form_for @equipment, :html=> { class: 'form-horizontal' }, wrapper: :horizontal_form  do |f| %>
+  
+  <%= f.error_notification %>
+
+  <%= f.input :name %>
+  
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-6">
+      <%= f.submit "Submit", class: "btn btn-default" %>
+      
+<% end %>

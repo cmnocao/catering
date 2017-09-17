@@ -4,7 +4,7 @@ class Event < ActiveRecord::Base
 	has_one :staff_list
 
 	def venue?
-		if venue_id != nil
+		if venue != nil
 			true
 		end
 	end
@@ -18,5 +18,5 @@ class Event < ActiveRecord::Base
 	end
 
 	scope :upcoming, lambda { where('start_time >= ?', Time.now) }
-	scope :past, lambda { where('end_time <= ?', Time.now) }
+	scope :past, lambda { where('start_time <= ?', Time.now) }
 end
